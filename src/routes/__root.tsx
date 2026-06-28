@@ -84,11 +84,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "TechRise Africa — Building the Next Generation of African Tech Titans" },
       { name: "description", content: "Premium practical tech academy training children, teenagers, and young adults in coding, AI, digital marketing, and business across Africa." },
       { name: "author", content: "TechRise Africa" },
-      { property: "og:title", content: "TechRise Africa — Building the Future" },
-      { property: "og:description", content: "Elite, practical tech education for the next generation of African innovators." },
+      { property: "og:title", content: "TechRise Africa — Building the Next Generation of African Tech Titans" },
+      { property: "og:description", content: "Premium practical tech academy training children, teenagers, and young adults in coding, AI, digital marketing, and business across Africa." },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "TechRise Africa" },
       { name: "twitter:card", content: "summary" },
+      { name: "twitter:title", content: "TechRise Africa — Building the Next Generation of African Tech Titans" },
+      { name: "twitter:description", content: "Premium practical tech academy training children, teenagers, and young adults in coding, AI, digital marketing, and business across Africa." },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/4c56eeea-36c6-4af2-af48-abeec9628e34" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/4c56eeea-36c6-4af2-af48-abeec9628e34" },
     ],
     links: [
       {
