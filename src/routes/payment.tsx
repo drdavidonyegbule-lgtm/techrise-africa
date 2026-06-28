@@ -2,8 +2,9 @@ import { createFileRoute, useNavigate, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
 import { Building2, Copy, CreditCard, FileUp, Loader2, Lock, ShieldCheck, Upload } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
+import { useServerFn } from "@tanstack/react-start";
 import { clearRegistration, loadRegistration, type StoredRegistration } from "@/lib/registration-store";
+import { recordPayment } from "@/lib/registration.functions";
 
 export const Route = createFileRoute("/payment")({
   head: () => ({
@@ -142,19 +143,20 @@ function Row({ k, v }: { k: string; v: string }) {
 function PaystackPanel({ reg }: { reg: StoredRegistration }) {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
+  const recordPaymentFn = useServerFn(recordPayment);
 
   async function handlePay() {
     setLoading(true);
     try {
       const reference = `TR-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 7)}`.toUpperCase();
-      await supabase
-        .from("bootcamp_registrations")
-        .update({
-          payment_method: "paystack",
-          reference_id: reference,
-          payment_status: "approved",
-        })
-        .eq("id", reg.registrationId);
+      await recordPaymentFn({
+        data: {
+          registrationId: reg.registrationId,
+          method: "paystack",
+          reference,
+          status: "approved",
+        },
+      });
 
       const url = `${PAYSTACK_URL}?email=${encodeURIComponent(reg.email)}&amount=50000&currency=NGN&reference=${reference}`;
       window.open(url, "_blank", "noopener,noreferrer");
@@ -205,6 +207,7 @@ function BankPanel({ reg }: { reg: StoredRegistration }) {
   const [file, setFile] = useState<File | null>(null);
   const [dragOver, setDragOver] = useState(false);
   const [uploading, setUploading] = useState(false);
+  const recordPaymentFn = useServerFn(recordPayment);
 
   function pickFile(f: File | null) {
     if (!f) return;
@@ -232,24 +235,26 @@ function BankPanel({ reg }: { reg: StoredRegistration }) {
     }
     setUploading(true);
     try {
-      const ext = file.name.split(".").pop() || "bin";
-      const path = `${reg.registrationId}/${Date.now()}.${ext}`;
-      const { error: upErr } = await supabase.storage.from("receipts").upload(path, file, {
-        upsert: true,
-        contentType: file.type,
-      });
-      if (upErr) throw upErr;
+      const buffer = await file.arrayBuffer();
+      let binary = "";
+      const bytes = new Uint8Array(buffer);
+      for (let i = 0; i < bytes.byteLength; i++) binary += String.fromCharCode(bytes[i]);
+      const base64 = btoa(binary);
 
       const reference = `TR-BT-${Date.now().toString(36)}`.toUpperCase();
-      await supabase
-        .from("bootcamp_registrations")
-        .update({
-          payment_method: "bank_transfer",
-          receipt_url: path,
-          reference_id: reference,
-          payment_status: "pending_verification",
-        })
-        .eq("id", reg.registrationId);
+      await recordPaymentFn({
+        data: {
+          registrationId: reg.registrationId,
+          method: "bank_transfer",
+          reference,
+          status: "pending_verification",
+          receipt: {
+            filename: file.name,
+            contentType: file.type,
+            base64,
+          },
+        },
+      });
 
       navigate({ to: "/payment/success", search: { ref: reference, method: "bank" } });
     } catch (err) {

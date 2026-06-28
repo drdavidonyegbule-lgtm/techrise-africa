@@ -34,8 +34,8 @@ export function Footer() {
             <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
               <li className="flex items-start gap-2">
                 <Mail className="mt-0.5 h-4 w-4 shrink-0 text-[var(--color-neon-violet)]" />
-                <a href="mailto:Team.TechRise@gmail.com" className="hover:text-foreground">
-                  Team.TechRise@gmail.com
+                <a href="mailto:team.techrise@gmail.com" className="hover:text-foreground">
+                  team.techrise@gmail.com
                 </a>
               </li>
               <li className="flex items-start gap-2">

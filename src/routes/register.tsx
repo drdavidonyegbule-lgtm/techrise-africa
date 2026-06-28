@@ -3,8 +3,9 @@ import { useState } from "react";
 import { z } from "zod";
 import { toast } from "sonner";
 import { ArrowRight, CheckCircle2, Loader2, Sparkles } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
+import { useServerFn } from "@tanstack/react-start";
 import { saveRegistration } from "@/lib/registration-store";
+import { createRegistration } from "@/lib/registration.functions";
 
 export const Route = createFileRoute("/register")({
   head: () => ({
@@ -31,6 +32,7 @@ function RegisterPage() {
   const [loading, setLoading] = useState(false);
   const [form, setForm] = useState({ fullName: "", email: "", phone: "", track: "juniors" as "juniors" | "seniors" });
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const createRegistrationFn = useServerFn(createRegistration);
 
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -44,56 +46,18 @@ function RegisterPage() {
     }
     setLoading(true);
     try {
-      // Upsert user by email so retries don't fail on unique constraint.
-      const { data: existing } = await supabase
-        .from("users")
-        .select("id")
-        .eq("email", parsed.data.email)
-        .maybeSingle();
-
-      let userId = existing?.id as string | undefined;
-      if (!userId) {
-        const { data: inserted, error: uErr } = await supabase
-          .from("users")
-          .insert({
-            email: parsed.data.email,
-            full_name: parsed.data.fullName,
-            phone: parsed.data.phone,
-            role: "student",
-          })
-          .select("id")
-          .single();
-        if (uErr || !inserted) throw uErr ?? new Error("Could not create user");
-        userId = inserted.id;
-      } else {
-        await supabase
-          .from("users")
-          .update({ full_name: parsed.data.fullName, phone: parsed.data.phone })
-          .eq("id", userId);
-      }
-
-      const { data: reg, error: rErr } = await supabase
-        .from("bootcamp_registrations")
-        .insert({
-          user_id: userId!,
-          track: parsed.data.track,
-          payment_status: "pending_verification",
-          amount: 50000,
-        })
-        .select("id")
-        .single();
-      if (rErr || !reg) throw rErr ?? new Error("Could not start registration");
+      const { userId, registrationId } = await createRegistrationFn({ data: parsed.data });
 
       saveRegistration({
-        userId: userId!,
-        registrationId: reg.id,
+        userId,
+        registrationId,
         fullName: parsed.data.fullName,
         email: parsed.data.email,
         phone: parsed.data.phone,
         track: parsed.data.track,
       });
 
-      toast.success("Profile saved. Proceeding to payment…");
+      toast.success("Profile saved. A confirmation email is on its way.");
       navigate({ to: "/payment" });
     } catch (err) {
       console.error(err);
