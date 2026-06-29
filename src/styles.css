@@ -66,7 +66,7 @@
   --secondary: oklch(0.68 0.24 0);                  /* Neo Neon Pink #EC4899 */
   --secondary-foreground: oklch(1 0 0);
   --muted: oklch(0.22 0.03 280);
-  --muted-foreground: oklch(0.72 0.025 250);        /* Muted Silver */
+  --muted-foreground: oklch(0.86 0.02 250);        /* Brighter readable silver */
   --accent: oklch(0.65 0.25 295);
   --accent-foreground: oklch(1 0 0);
   --destructive: oklch(0.65 0.24 25);
