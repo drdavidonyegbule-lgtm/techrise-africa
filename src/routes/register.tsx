@@ -247,7 +247,7 @@ function RegisterPage() {
 function Field({ label, error, children }: { label: string; error?: string; children: React.ReactNode }) {
   return (
     <label className="block">
-      <div className="mb-1.5 text-xs font-medium uppercase tracking-wider text-muted-foreground">{label}</div>
+      <div className="mb-2.5 text-xs font-semibold uppercase tracking-wider text-foreground/80">{label}</div>
       {children}
       {error && <div className="mt-1 text-xs text-[oklch(0.78_0.2_25)]">{error}</div>}
     </label>
