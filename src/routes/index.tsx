@@ -96,7 +96,7 @@ function Index() {
           <div className="space-y-5 text-lg text-muted-foreground">
             <p>
               Traditional education prepares the next generation for a world that no longer exists.
-              At TechRise Africa, we believe certificates don't move the world — skills and execution do.
+              At TechRise Africa, we believe <strong className="text-foreground">certificates alone don't move the world</strong> — skills and execution do.
             </p>
             <div className="gradient-border rounded-2xl p-6 text-base text-foreground/90">
               TechRise Africa is an emerging premium practical institute built to democratize tech
@@ -156,10 +156,9 @@ function Index() {
           ))}
         </div>
 
-        <div className="mt-10 glass rounded-2xl p-5 text-center text-sm text-muted-foreground">
+        <div className="mt-10 glass rounded-2xl p-5 text-center text-sm text-foreground/90">
           Backed by the operational authority of{" "}
-          <span className="font-semibold text-foreground">VGP Media Technologies</span>, generating over{" "}
-          <span className="text-[var(--color-cyber-lime)] font-semibold">₦9.3 billion</span> for clients across various sectors.
+          <span className="font-semibold text-foreground">VGP Media Technologies</span> — a proven operator across multiple high-growth sectors.
         </div>
       </section>
 

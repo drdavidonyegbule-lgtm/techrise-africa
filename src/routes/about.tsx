@@ -67,7 +67,7 @@ function AboutPage() {
         <ContactCard
           icon={<MapPin className="h-5 w-5" />}
           title="Office Location"
-          body={<>Elimgbu Hub / Eneka Center Branch<br />RCCG, The Faithful God Parish, Unity Estate, Eneka.</>}
+          body={<>1st Floor, Jobanny Plaza,<br />Elimgbu, Rivers State.<br />Port Harcourt.</>}
         />
         <ContactCard
           icon={<Mail className="h-5 w-5" />}
