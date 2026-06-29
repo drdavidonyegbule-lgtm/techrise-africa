@@ -12,8 +12,8 @@ export function Footer() {
             <p className="mt-4 max-w-sm text-sm text-muted-foreground">
               The Future Belongs to Those Who Build It. Let's Get to Work.
             </p>
-            <p className="mt-3 text-xs text-muted-foreground/80">
-              Backed by VGP Media Technologies — 9.3B+ Naira generated for clients.
+            <p className="mt-3 text-xs text-muted-foreground">
+              Backed by VGP Media Technologies — proven operators across high-growth sectors.
             </p>
           </div>
           <div>
@@ -44,7 +44,7 @@ export function Footer() {
               </li>
               <li className="flex items-start gap-2">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-[var(--color-neon-violet)]" />
-                <span>RCCG, The Faithful God Parish, Unity Estate, Eneka.</span>
+                <span>1st Floor, Jobanny Plaza, Elimgbu, Rivers State. Port Harcourt.</span>
               </li>
             </ul>
           </div>
