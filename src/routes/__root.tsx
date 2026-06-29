@@ -133,7 +133,7 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <Navbar />
-      <main className="pt-20">
+      <main className="pt-24 md:pt-24">
         <Outlet />
       </main>
       <Footer />
