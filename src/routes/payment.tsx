@@ -12,10 +12,11 @@ export const Route = createFileRoute("/payment")({
       { title: "Payment — TechRise Africa" },
       { name: "description", content: "Complete your TechRise Kids Bootcamp 2026 payment via Paystack or bank transfer." },
       { property: "og:title", content: "Payment — TechRise Africa" },
-      { property: "og:url", content: "/payment" },
+      { property: "og:description", content: "Secure checkout for the TechRise Kids Bootcamp 2026 — Paystack or bank transfer." },
+      { property: "og:url", content: "https://techrise-africa.lovable.app/payment" },
       { name: "robots", content: "noindex" },
     ],
-    links: [{ rel: "canonical", href: "/payment" }],
+    links: [{ rel: "canonical", href: "https://techrise-africa.lovable.app/payment" }],
   }),
   component: PaymentPage,
 });

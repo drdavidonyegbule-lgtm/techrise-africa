@@ -6,13 +6,45 @@ import heroWoman from "@/assets/hero-vr-woman.jpg.asset.json";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "TechRise Africa — Building the Next Generation of African Tech Titans" },
+      { title: "TechRise Africa — Practical Tech Academy" },
       { name: "description", content: "Premium practical tech academy equipping kids, teens, and young adults with elite coding, AI, and business skills to dominate the digital economy." },
-      { property: "og:title", content: "TechRise Africa — Building the Future" },
-      { property: "og:description", content: "Coding · AI · Digital Marketing · Business. Elite, practical tech education for the next generation." },
-      { property: "og:url", content: "/" },
+      { property: "og:title", content: "TechRise Africa — Practical Tech Academy" },
+      { property: "og:description", content: "Coding · AI · Digital Marketing · Business. Elite, practical tech education for the next generation of African builders." },
+      { property: "og:url", content: "https://techrise-africa.lovable.app/" },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: "https://techrise-africa.lovable.app/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "EducationalOrganization",
+          name: "TechRise Africa",
+          url: "https://techrise-africa.lovable.app/",
+          email: "team.techrise26@gmail.com",
+          telephone: "+234-812-981-5038",
+          description:
+            "Premium practical tech academy training kids, teens, and young adults in coding, AI, digital marketing, and business across Africa.",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "1st Floor, Jobanny Plaza, Elimgbu",
+            addressLocality: "Port Harcourt",
+            addressRegion: "Rivers State",
+            addressCountry: "NG",
+          },
+          sameAs: ["https://wa.me/2348129815038"],
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "TechRise Africa",
+          url: "https://techrise-africa.lovable.app/",
+        }),
+      },
+    ],
   }),
   component: Index,
 });

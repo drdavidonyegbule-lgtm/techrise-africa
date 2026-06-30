@@ -9,9 +9,35 @@ export const Route = createFileRoute("/programs")({
       { name: "description", content: "TechRise Kids Bootcamp 2026 (August Cohort) — a 1-month practical incubator for ages 7–18+. Limited to 150 seats." },
       { property: "og:title", content: "Programs & Admissions — TechRise Africa" },
       { property: "og:description", content: "Maiden Edition Kids Bootcamp 2026 — intensive 1-month build. Limited seats." },
-      { property: "og:url", content: "/programs" },
+      { property: "og:url", content: "https://techrise-africa.lovable.app/programs" },
     ],
-    links: [{ rel: "canonical", href: "/programs" }],
+    links: [{ rel: "canonical", href: "https://techrise-africa.lovable.app/programs" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Course",
+          name: "TechRise Kids Bootcamp 2026",
+          description:
+            "A 1-month practical incubator for ages 7–18+ covering coding, AI, digital marketing, and business. Limited to 150 seats.",
+          provider: {
+            "@type": "EducationalOrganization",
+            name: "TechRise Africa",
+            sameAs: "https://techrise-africa.lovable.app/",
+          },
+          educationalLevel: "Beginner to Intermediate",
+          inLanguage: "en",
+          offers: {
+            "@type": "Offer",
+            price: "50000",
+            priceCurrency: "NGN",
+            availability: "https://schema.org/LimitedAvailability",
+            url: "https://techrise-africa.lovable.app/register",
+          },
+        }),
+      },
+    ],
   }),
   component: ProgramsPage,
 });
