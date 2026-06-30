@@ -1,0 +1,12 @@
+# TechRise Africa
+
+> Premium practical tech academy training kids, teens, and young adults in coding, AI, digital marketing, and business across Africa.
+
+TechRise Africa is an emerging premium practical institute built to democratize tech education across the continent. Our maiden Kids Bootcamp 2026 runs as a 1-month intensive incubator for ages 7–18+, capped at 150 students.
+
+## Pages
+
+- [Home](/): Vision, four academy pillars (Coding, AI, Digital Creative, Business), and an overview of the academy.
+- [Programs & Admissions](/programs): TechRise Kids Bootcamp 2026 spotlight, age-appropriate tracks, dates, and upcoming program catalog.
+- [Register](/register): Two-minute intake form to secure a seat in the August cohort.
+- [About](/about): Institutional roadmap, office location in Port Harcourt, contact details, and FAQ.
