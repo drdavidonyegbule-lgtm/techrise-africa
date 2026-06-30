@@ -14,6 +14,9 @@ export const Route = createFileRoute("/payment/success")({
   head: () => ({
     meta: [
       { title: "Registration Received — TechRise Africa" },
+      { name: "description", content: "Your TechRise Kids Bootcamp 2026 registration has been received. Admissions will confirm your seat shortly." },
+      { property: "og:title", content: "Registration Received — TechRise Africa" },
+      { property: "og:description", content: "Your TechRise Kids Bootcamp 2026 registration has been received." },
       { name: "robots", content: "noindex" },
     ],
   }),

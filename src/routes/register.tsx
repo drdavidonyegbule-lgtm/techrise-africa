@@ -33,9 +33,10 @@ export const Route = createFileRoute("/register")({
       { title: "Register — TechRise Kids Bootcamp 2026" },
       { name: "description", content: "Complete your 2-minute intake to secure a seat in the TechRise Kids Bootcamp 2026 August Cohort." },
       { property: "og:title", content: "Register — TechRise Africa" },
-      { property: "og:url", content: "/register" },
+      { property: "og:description", content: "Quick 2-minute intake to secure your child's seat in the TechRise Kids Bootcamp 2026 — strictly capped at 150 seats." },
+      { property: "og:url", content: "https://techrise-africa.lovable.app/register" },
     ],
-    links: [{ rel: "canonical", href: "/register" }],
+    links: [{ rel: "canonical", href: "https://techrise-africa.lovable.app/register" }],
   }),
   component: RegisterPage,
 });
