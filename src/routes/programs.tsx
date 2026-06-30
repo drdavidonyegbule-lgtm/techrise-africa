@@ -99,15 +99,15 @@ function ProgramsPage() {
             { title: "Continuous Mentorship Deep Tracks", tag: "Coming Soon", body: "Long-form, cohort-based mentorship for graduates building real ventures.", icon: GraduationCap },
             { title: "TechRise Schools Partnership", tag: "Planned", body: "Embedding our curriculum directly into partner schools across the continent.", icon: Users },
           ].map(({ title, tag, body, icon: Icon }) => (
-            <div key={title} className="glass rounded-3xl p-6 opacity-70 transition-opacity hover:opacity-100">
+            <div key={title} className="glass rounded-3xl p-6 transition-transform hover:-translate-y-1">
               <div className="flex items-center justify-between">
-                <Icon className="h-6 w-6 text-muted-foreground" />
-                <span className="rounded-full bg-white/5 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
+                <Icon className="h-6 w-6 text-[var(--color-neon-violet)]" />
+                <span className="rounded-full bg-[oklch(0.94_0.24_125/0.15)] px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-[var(--color-cyber-lime)] ring-1 ring-[oklch(0.94_0.24_125/0.4)]">
                   {tag}
                 </span>
               </div>
               <h3 className="mt-5 font-display text-xl font-bold text-foreground">{title}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">{body}</p>
+              <p className="mt-2 text-sm text-foreground/80">{body}</p>
             </div>
           ))}
         </div>

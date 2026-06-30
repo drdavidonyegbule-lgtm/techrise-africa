@@ -72,7 +72,7 @@ function AboutPage() {
         <ContactCard
           icon={<Mail className="h-5 w-5" />}
           title="Official Email"
-          body={<a href="mailto:Team.TechRise@gmail.com" className="hover:text-foreground">Team.TechRise@gmail.com</a>}
+          body={<a href="mailto:team.techrise26@gmail.com" className="hover:text-foreground">team.techrise26@gmail.com</a>}
         />
         <ContactCard
           icon={<MessageCircle className="h-5 w-5" />}
