@@ -9,9 +9,9 @@ export const Route = createFileRoute("/programs")({
       { name: "description", content: "TechRise Kids Bootcamp 2026 (August Cohort) — a 1-month practical incubator for ages 7–18+. Limited to 150 seats." },
       { property: "og:title", content: "Programs & Admissions — TechRise Africa" },
       { property: "og:description", content: "Maiden Edition Kids Bootcamp 2026 — intensive 1-month build. Limited seats." },
-      { property: "og:url", content: "https://techrise-africa.lovable.app/programs" },
+      { property: "og:url", content: "https://traacademy.org/programs" },
     ],
-    links: [{ rel: "canonical", href: "https://techrise-africa.lovable.app/programs" }],
+    links: [{ rel: "canonical", href: "https://traacademy.org/programs" }],
     scripts: [
       {
         type: "application/ld+json",
@@ -24,7 +24,7 @@ export const Route = createFileRoute("/programs")({
           provider: {
             "@type": "EducationalOrganization",
             name: "TechRise Africa",
-            sameAs: "https://techrise-africa.lovable.app/",
+            sameAs: "https://traacademy.org/",
           },
           educationalLevel: "Beginner to Intermediate",
           inLanguage: "en",
@@ -33,7 +33,7 @@ export const Route = createFileRoute("/programs")({
             price: "50000",
             priceCurrency: "NGN",
             availability: "https://schema.org/LimitedAvailability",
-            url: "https://techrise-africa.lovable.app/register",
+            url: "https://traacademy.org/register",
           },
         }),
       },
