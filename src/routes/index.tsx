@@ -12,9 +12,11 @@ export const Route = createFileRoute("/")({
       { property: "og:description", content: "Coding · AI · Digital Marketing · Business. Elite, practical tech education for the next generation of African builders." },
       { property: "og:url", content: "https://techrise-africa.lovable.app/" },
     ],
-    links: [{ rel: "canonical", href: "https://techrise-africa.lovable.app/" }],
-    // Preload hero LCP image so it paints faster on Google's Core Web Vitals.
-    // (Merged into links via TanStack head())
+    links: [
+      { rel: "canonical", href: "https://techrise-africa.lovable.app/" },
+      // Preload LCP hero image for faster paint and better Core Web Vitals.
+      { rel: "preload", as: "image", href: heroBoy.url, fetchpriority: "high" } as unknown as { rel: string; href: string },
+    ],
     scripts: [
       {
         type: "application/ld+json",
