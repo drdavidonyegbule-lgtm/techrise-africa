@@ -91,8 +91,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:card", content: "summary" },
       { name: "twitter:title", content: "TechRise Africa — Practical Tech Academy" },
       { name: "twitter:description", content: "Premium practical tech academy training kids, teens, and young adults in coding, AI, digital marketing, and business across Africa." },
-      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/4c56eeea-36c6-4af2-af48-abeec9628e34" },
-      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/4c56eeea-36c6-4af2-af48-abeec9628e34" },
+      { property: "og:image", content: "https://traacademy.org/assets/og-image.png" },
+      { name: "twitter:image", content: "https://traacademy.org/assets/og-image.png" },
     ],
     links: [
       {
