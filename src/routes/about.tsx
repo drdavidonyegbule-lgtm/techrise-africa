@@ -9,9 +9,9 @@ export const Route = createFileRoute("/about")({
       { name: "description", content: "TechRise Africa is a premium practical tech institute expanding across the African continent. Meet the team, vision, and contact details." },
       { property: "og:title", content: "About Us — TechRise Africa" },
       { property: "og:description", content: "Building practical tech leaders across the African continent." },
-      { property: "og:url", content: "https://techrise-africa.lovable.app/about" },
+      { property: "og:url", content: "https://traacademy.org/about" },
     ],
-    links: [{ rel: "canonical", href: "https://techrise-africa.lovable.app/about" }],
+    links: [{ rel: "canonical", href: "https://traacademy.org/about" }],
     scripts: [
       {
         type: "application/ld+json",
