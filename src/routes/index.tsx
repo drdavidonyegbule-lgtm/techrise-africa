@@ -10,10 +10,10 @@ export const Route = createFileRoute("/")({
       { name: "description", content: "Premium practical tech academy equipping kids, teens, and young adults with elite coding, AI, and business skills to dominate the digital economy." },
       { property: "og:title", content: "TechRise Africa — Practical Tech Academy" },
       { property: "og:description", content: "Coding · AI · Digital Marketing · Business. Elite, practical tech education for the next generation of African builders." },
-      { property: "og:url", content: "https://techrise-africa.lovable.app/" },
+      { property: "og:url", content: "https://traacademy.org/" },
     ],
     links: [
-      { rel: "canonical", href: "https://techrise-africa.lovable.app/" },
+      { rel: "canonical", href: "https://traacademy.org/" },
       // Preload LCP hero image for faster paint and better Core Web Vitals.
       { rel: "preload", as: "image", href: heroBoy.url, fetchpriority: "high" } as unknown as { rel: string; href: string },
     ],
@@ -24,7 +24,7 @@ export const Route = createFileRoute("/")({
           "@context": "https://schema.org",
           "@type": "EducationalOrganization",
           name: "TechRise Africa",
-          url: "https://techrise-africa.lovable.app/",
+          url: "https://traacademy.org/",
           email: "team.techrise26@gmail.com",
           telephone: "+234-812-981-5038",
           description:
@@ -45,7 +45,7 @@ export const Route = createFileRoute("/")({
           "@context": "https://schema.org",
           "@type": "WebSite",
           name: "TechRise Africa",
-          url: "https://techrise-africa.lovable.app/",
+          url: "https://traacademy.org/",
         }),
       },
     ],
