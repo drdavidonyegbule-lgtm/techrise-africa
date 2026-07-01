@@ -88,7 +88,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:description", content: "Premium practical tech academy training kids, teens, and young adults in coding, AI, digital marketing, and business across Africa." },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "TechRise Africa" },
-      { name: "twitter:card", content: "summary" },
+      { name: "robots", content: "index, follow" },
+      { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "TechRise Africa — Practical Tech Academy" },
       { name: "twitter:description", content: "Premium practical tech academy training kids, teens, and young adults in coding, AI, digital marketing, and business across Africa." },
       { property: "og:image", content: "https://traacademy.org/assets/og-image.png" },
@@ -99,6 +100,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: appCss,
       },
+      { rel: "icon", href: "/techrise-logo.png", type: "image/png" },
+      { rel: "apple-touch-icon", href: "/techrise-logo.png" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
