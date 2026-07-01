@@ -4,4 +4,4 @@ Allow: /
 Disallow: /payment
 Disallow: /payment/success
 
-Sitemap: https://techrise-africa.lovable.app/sitemap.xml
+Sitemap: https://traacademy.org/sitemap.xml
