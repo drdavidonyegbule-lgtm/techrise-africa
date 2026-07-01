@@ -12,7 +12,11 @@ export const Route = createFileRoute("/")({
       { property: "og:description", content: "Coding · AI · Digital Marketing · Business. Elite, practical tech education for the next generation of African builders." },
       { property: "og:url", content: "https://techrise-africa.lovable.app/" },
     ],
-    links: [{ rel: "canonical", href: "https://techrise-africa.lovable.app/" }],
+    links: [
+      { rel: "canonical", href: "https://techrise-africa.lovable.app/" },
+      // Preload LCP hero image for faster paint and better Core Web Vitals.
+      { rel: "preload", as: "image", href: heroBoy.url, fetchpriority: "high" } as unknown as { rel: string; href: string },
+    ],
     scripts: [
       {
         type: "application/ld+json",
@@ -104,10 +108,26 @@ function Index() {
           <div className="relative">
             <div className="absolute -inset-6 -z-10 rounded-[2.5rem] bg-gradient-to-br from-[oklch(0.65_0.25_295/0.35)] via-transparent to-[oklch(0.68_0.24_0/0.3)] blur-3xl" />
             <div className="gradient-border overflow-hidden rounded-[2rem]">
-              <img src={heroBoy.url} alt="Young coder building in mixed reality" className="aspect-[4/5] w-full object-cover" />
+              <img
+                src={heroBoy.url}
+                alt="Young African coder building in mixed reality at TechRise Africa Kids Bootcamp"
+                className="aspect-[4/5] w-full object-cover"
+                width={800}
+                height={1000}
+                fetchPriority="high"
+                decoding="async"
+              />
             </div>
             <div className="absolute -bottom-6 -left-6 hidden w-44 overflow-hidden rounded-2xl glass glow-pink sm:block">
-              <img src={heroWoman.url} alt="Student exploring AI tools" className="aspect-square w-full object-cover" />
+              <img
+                src={heroWoman.url}
+                alt="TechRise Africa student exploring AI tools"
+                className="aspect-square w-full object-cover"
+                width={200}
+                height={200}
+                loading="lazy"
+                decoding="async"
+              />
             </div>
             <div className="absolute -right-2 top-6 glass rounded-2xl px-4 py-3">
               <div className="text-[10px] uppercase tracking-widest text-[var(--color-cyber-lime)]">Now Active</div>
