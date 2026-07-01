@@ -1,6 +1,6 @@
 [build]
-  command = "NITRO_PRESET=netlify-edge bun run build"
-  publish = ".netlify/images"
+  command = "NITRO_PRESET=netlify bun run build"
+  publish = ".output/public"
 
 [[redirects]]
   from = "/*"
