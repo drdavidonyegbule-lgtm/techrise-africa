@@ -1,13 +1,8 @@
-# Netlify build config for TanStack Start (Nitro).
-# Setting NITRO_PRESET=netlify makes Nitro emit Netlify Functions instead
-# of the default Cloudflare Worker so the app runs natively on Netlify.
 [build]
-  command = "NITRO_PRESET=netlify bun run build"
-  publish = ".output/public"
+  command = "NITRO_PRESET=netlify-edge bun run build"
+  publish = ".netlify/images"
 
-[build.environment]
-  NODE_VERSION = "20"
-  NITRO_PRESET = "netlify"
-
-# Nitro emits Netlify Functions under .netlify/functions-internal.
-# Netlify picks them up automatically via the generated _redirects.
+[[redirects]]
+  from = "/*"
+  to = "/.netlify/functions/server"
+  status = 200
