@@ -17,11 +17,35 @@ export const Route = createFileRoute("/payment")({
       { name: "robots", content: "noindex" },
     ],
     links: [{ rel: "canonical", href: "https://techrise-africa.lovable.app/payment" }],
+    scripts: [
+      { src: "https://js.paystack.co/v2/inline.js", defer: true },
+    ],
   }),
   component: PaymentPage,
 });
 
-const PAYSTACK_URL = "https://paystack.shop/pay/vgp";
+const PAYSTACK_PUBLIC_KEY = "pk_live_26511ad03cbf83fff24204a18790a4b2e04756f7";
+
+type PaystackPop = {
+  newTransaction: (opts: {
+    key: string;
+    email: string;
+    amount: number; // kobo
+    currency?: string;
+    reference?: string;
+    firstName?: string;
+    lastName?: string;
+    onSuccess?: (tx: { reference: string }) => void;
+    onCancel?: () => void;
+    onError?: (err: unknown) => void;
+  }) => void;
+};
+
+declare global {
+  interface Window {
+    PaystackPop?: new () => PaystackPop;
+  }
+}
 
 function PaymentPage() {
   const navigate = useNavigate();
@@ -149,23 +173,52 @@ function PaystackPanel({ reg }: { reg: StoredRegistration }) {
   async function handlePay() {
     setLoading(true);
     try {
+      if (typeof window === "undefined" || !window.PaystackPop) {
+        toast.error("Paystack is still loading — please try again in a moment.");
+        setLoading(false);
+        return;
+      }
       const reference = `TR-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 7)}`.toUpperCase();
-      await recordPaymentFn({
-        data: {
-          registrationId: reg.registrationId,
-          method: "paystack",
-          reference,
-          status: "approved",
+      const [firstName, ...rest] = (reg.fullName || "").trim().split(/\s+/);
+      const lastName = rest.join(" ") || firstName || "Student";
+
+      const popup = new window.PaystackPop();
+      popup.newTransaction({
+        key: PAYSTACK_PUBLIC_KEY,
+        email: reg.email,
+        amount: 50000 * 100, // ₦50,000 in kobo
+        currency: "NGN",
+        reference,
+        firstName: firstName || "Student",
+        lastName,
+        onSuccess: async (tx) => {
+          try {
+            await recordPaymentFn({
+              data: {
+                registrationId: reg.registrationId,
+                method: "paystack",
+                reference: tx.reference,
+                status: "approved",
+              },
+            });
+          } catch (err) {
+            console.error(err);
+          }
+          navigate({ to: "/payment/success", search: { ref: tx.reference } });
+        },
+        onCancel: () => {
+          setLoading(false);
+          toast.message("Payment cancelled.");
+        },
+        onError: (err) => {
+          console.error(err);
+          setLoading(false);
+          toast.error("Paystack could not process this payment.");
         },
       });
-
-      const url = `${PAYSTACK_URL}?email=${encodeURIComponent(reg.email)}&amount=50000&currency=NGN&reference=${reference}`;
-      window.open(url, "_blank", "noopener,noreferrer");
-      navigate({ to: "/payment/success", search: { ref: reference } });
     } catch (err) {
       console.error(err);
       toast.error("Could not start Paystack checkout.");
-    } finally {
       setLoading(false);
     }
   }
