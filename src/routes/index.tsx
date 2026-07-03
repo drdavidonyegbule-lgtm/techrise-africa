@@ -97,9 +97,9 @@ function Index() {
                 ["4", "Core pillars"],
                 ["30 days", "Intensive build"],
               ].map(([k, v]) => (
-                <div key={v} className="glass rounded-2xl p-4 text-center">
-                  <dt className="order-2 mt-1 text-[11px] uppercase tracking-wider text-muted-foreground">{v}</dt>
-                  <dd className="order-1 font-display text-2xl font-bold text-foreground">{k}</dd>
+                <div key={v} className="glass flex flex-col-reverse rounded-2xl p-4 text-center">
+                  <dt className="mt-1 text-[11px] uppercase tracking-wider text-muted-foreground">{v}</dt>
+                  <dd className="font-display text-2xl font-bold text-foreground">{k}</dd>
                 </div>
               ))}
             </dl>
