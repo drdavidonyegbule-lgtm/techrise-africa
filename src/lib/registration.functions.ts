@@ -86,7 +86,7 @@ async function sendGmail(to: string, subject: string, htmlBody: string, textBody
 function welcomeEmail(name: string, track: "juniors" | "seniors") {
   const trackLabel = track === "juniors" ? "Juniors (Ages 7–12)" : "Seniors (Ages 13–18+)";
   const subject = "Welcome to TechRise Africa — Registration Received";
-  const text = `Hi ${name},\n\nThanks for registering for the TechRise Kids Bootcamp 2026 (${trackLabel}).\n\nWe've saved your details. The next step is payment — once your slot is confirmed we'll send full onboarding instructions.\n\nNeed help? Reply to this email or message us on WhatsApp: https://wa.me/2348129815038\n\n— TechRise Africa\nteam.techrise@gmail.com`;
+  const text = `Hi ${name},\n\nThanks for registering for the TechRise Kids Bootcamp 2026 (${trackLabel}).\n\nWe've saved your details. The next step is payment — once your slot is confirmed we'll send full onboarding instructions.\n\nNeed help? Reply to this email or message us on WhatsApp: https://wa.me/2348124023599\n\n— TechRise Africa\nteam.techrise@gmail.com`;
   const html = `<!doctype html><html><body style="margin:0;background:#ffffff;font-family:Arial,Helvetica,sans-serif;color:#0B0813">
   <div style="max-width:560px;margin:0 auto;padding:32px 24px">
     <h1 style="font-size:22px;margin:0 0 12px">Welcome to TechRise Africa</h1>
@@ -94,7 +94,7 @@ function welcomeEmail(name: string, track: "juniors" | "seniors") {
     <p>Thanks for registering for the <strong>TechRise Kids Bootcamp 2026</strong> — ${trackLabel}.</p>
     <p>We've saved your details. The next step is payment — once your slot is confirmed we'll send full onboarding instructions.</p>
     <p style="margin:24px 0">
-      <a href="https://wa.me/2348129815038" style="background:#8B5CF6;color:#fff;text-decoration:none;padding:12px 20px;border-radius:9999px;display:inline-block">Confirm on WhatsApp</a>
+      <a href="https://wa.me/2348124023599" style="background:#8B5CF6;color:#fff;text-decoration:none;padding:12px 20px;border-radius:9999px;display:inline-block">Confirm on WhatsApp</a>
     </p>
     <p style="color:#64748b;font-size:12px">team.techrise@gmail.com · TechRise Africa</p>
   </div></body></html>`;
@@ -109,7 +109,7 @@ function paymentEmail(name: string, reference: string, method: "paystack" | "ban
   const intro = approved
     ? "Your payment has been confirmed and your seat in the TechRise Kids Bootcamp 2026 is officially secured."
     : "We've received your transfer proof. Our admissions team will verify within 24 hours and email you a final confirmation.";
-  const text = `Hi ${name},\n\n${intro}\n\nReference: ${reference}\n\nWhatsApp: https://wa.me/2348129815038\n\n— TechRise Africa\nteam.techrise@gmail.com`;
+  const text = `Hi ${name},\n\n${intro}\n\nReference: ${reference}\n\nWhatsApp: https://wa.me/2348124023599\n\n— TechRise Africa\nteam.techrise@gmail.com`;
   const html = `<!doctype html><html><body style="margin:0;background:#ffffff;font-family:Arial,Helvetica,sans-serif;color:#0B0813">
   <div style="max-width:560px;margin:0 auto;padding:32px 24px">
     <h1 style="font-size:22px;margin:0 0 12px">${approved ? "You're in 🎉" : "Payment received"}</h1>
@@ -117,7 +117,7 @@ function paymentEmail(name: string, reference: string, method: "paystack" | "ban
     <p>${intro}</p>
     <p style="background:#f1f5f9;padding:12px 16px;border-radius:8px;font-family:monospace">Reference: ${reference}</p>
     <p style="margin:24px 0">
-      <a href="https://wa.me/2348129815038" style="background:#8B5CF6;color:#fff;text-decoration:none;padding:12px 20px;border-radius:9999px;display:inline-block">Chat with Admissions</a>
+      <a href="https://wa.me/2348124023599" style="background:#8B5CF6;color:#fff;text-decoration:none;padding:12px 20px;border-radius:9999px;display:inline-block">Chat with Admissions</a>
     </p>
     <p style="color:#64748b;font-size:12px">team.techrise@gmail.com · TechRise Africa</p>
   </div></body></html>`;
