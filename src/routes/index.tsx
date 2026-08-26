@@ -130,7 +130,7 @@ function Index() {
               />
             </div>
             <div className="absolute -right-2 top-6 glass rounded-2xl px-4 py-3">
-              <div className="text-[10px] uppercase tracking-widest text-[var(--color-cyber-lime)]">Now Active</div>
+              <div className="text-[10px] uppercase tracking-widest text-[var(--color-neon-pink)]">Closed</div>
               <div className="text-sm font-semibold text-foreground">Kids Bootcamp 2026</div>
             </div>
           </div>
@@ -222,17 +222,17 @@ function Index() {
             <div>
               <BrainCircuit className="h-8 w-8 text-[var(--color-cyber-lime)]" />
               <h2 className="mt-3 font-display text-3xl font-bold text-foreground sm:text-4xl">
-                Ready to give your child an unfair advantage in the digital age?
+                The August Kids Bootcamp is now closed.
               </h2>
               <p className="mt-3 max-w-2xl text-muted-foreground">
-                Limited seats in the August Kids Bootcamp. Early-bird saves ₦15,000 — expires July 25th.
+                Our open tracks for adults, mentorship, and school partnerships are now accepting expressions of interest.
               </p>
             </div>
             <Link
-              to="/register"
+              to="/programs"
               className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[oklch(0.65_0.25_295)] to-[oklch(0.68_0.24_0)] px-7 py-4 text-sm font-semibold text-white glow-violet"
             >
-              Secure Your Slot <ArrowRight className="h-4 w-4" />
+              View Open Tracks <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
         </div>
