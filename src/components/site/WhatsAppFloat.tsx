@@ -1,7 +1,7 @@
 import { MessageCircle } from "lucide-react";
 
 const WA_URL =
-  "https://wa.me/2348129815038?text=Hi%20TechRise%20Africa%2C%20I'd%20like%20to%20speak%20with%20an%20academic%20advisor.";
+  "https://wa.me/2348124023599?text=Hi%20TechRise%20Africa%2C%20I'd%20like%20to%20speak%20with%20an%20academic%20advisor.";
 
 export function WhatsAppFloat() {
   return (

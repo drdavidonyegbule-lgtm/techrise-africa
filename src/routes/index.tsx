@@ -36,7 +36,7 @@ export const Route = createFileRoute("/")({
             addressRegion: "Rivers State",
             addressCountry: "NG",
           },
-          sameAs: ["https://wa.me/2348129815038"],
+          sameAs: ["https://wa.me/2348124023599"],
         }),
       },
       {
@@ -83,7 +83,7 @@ function Index() {
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </Link>
               <a
-                href="https://wa.me/2348129815038?text=Hi%20TechRise%20Africa%2C%20I'd%20like%20to%20speak%20to%20an%20academic%20advisor."
+                href="https://wa.me/2348124023599?text=Hi%20TechRise%20Africa%2C%20I'd%20like%20to%20speak%20to%20an%20academic%20advisor."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full glass px-6 py-3.5 text-sm font-semibold text-foreground transition-colors hover:bg-white/10"
