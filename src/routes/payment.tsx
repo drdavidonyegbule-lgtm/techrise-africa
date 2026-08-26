@@ -137,7 +137,7 @@ function PaymentPage() {
           <p className="mt-6 text-center text-xs text-muted-foreground">
             Need help?{" "}
             <a
-              href="https://wa.me/2348129815038"
+              href="https://wa.me/2348124023599"
               target="_blank"
               rel="noopener noreferrer"
               className="text-foreground underline-offset-4 hover:underline"

@@ -93,7 +93,7 @@ function AboutPage() {
           title="WhatsApp Admissions"
           body={
             <>
-              <a href="https://wa.me/2348129815038" target="_blank" rel="noopener noreferrer" className="block hover:text-foreground">0812 981 5038</a>
+              <a href="https://wa.me/2348124023599" target="_blank" rel="noopener noreferrer" className="block hover:text-foreground">0812 402 3599</a>
               <a href="https://wa.me/2349036849219" target="_blank" rel="noopener noreferrer" className="block hover:text-foreground">0903 684 9219</a>
             </>
           }
