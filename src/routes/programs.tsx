@@ -45,6 +45,12 @@ export const Route = createFileRoute("/programs")({
 function ProgramsPage() {
   return (
     <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6">
+      <div className="mb-8 glass rounded-2xl border border-[oklch(0.68_0.24_0/0.35)] bg-[oklch(0.68_0.24_0/0.12)] p-4 text-center sm:p-5">
+        <p className="text-sm font-semibold text-foreground sm:text-base">
+          Announcement: The August Kids Bootcamp is now <span className="text-[var(--color-neon-pink)]">Closed</span>. All upcoming tracks below are officially <span className="text-[var(--color-cyber-lime)]">Open</span> for expression of interest.
+        </p>
+      </div>
+
       <header className="max-w-3xl">
         <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-cyber-lime)]">
           Programs &amp; Admissions
@@ -62,8 +68,8 @@ function ProgramsPage() {
       <section className="mt-12 gradient-border overflow-hidden rounded-[2rem]">
         <div className="grid gap-0 md:grid-cols-[1.1fr_1fr]">
           <div className="relative p-8 sm:p-10">
-            <span className="pulse-lime inline-flex items-center gap-2 rounded-full bg-[oklch(0.94_0.24_125)] px-3 py-1 text-[11px] font-bold uppercase tracking-widest text-black">
-              ● Now Active: Maiden Edition Spotlight
+            <span className="inline-flex items-center gap-2 rounded-full bg-[oklch(0.68_0.24_0/0.2)] px-3 py-1 text-[11px] font-bold uppercase tracking-widest text-[var(--color-neon-pink)] ring-1 ring-[oklch(0.68_0.24_0/0.4)]">
+              ● Closed: Maiden Edition Spotlight
             </span>
             <h2 className="mt-5 font-display text-3xl font-bold text-foreground sm:text-4xl">
               TechRise Kids Bootcamp 2026 <span className="text-gradient">(August Cohort)</span>
@@ -121,9 +127,9 @@ function ProgramsPage() {
 
         <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {[
-            { title: "Adults & Corporate Teams Program", tag: "Coming Soon", body: "Advanced applied training for working professionals and entire corporate teams.", icon: Briefcase },
-            { title: "Continuous Mentorship Deep Tracks", tag: "Coming Soon", body: "Long-form, cohort-based mentorship for graduates building real ventures.", icon: GraduationCap },
-            { title: "TechRise Schools Partnership", tag: "Planned", body: "Embedding our curriculum directly into partner schools across the continent.", icon: Users },
+            { title: "Adults & Corporate Teams Program", tag: "Open", body: "Advanced applied training for working professionals and entire corporate teams.", icon: Briefcase },
+            { title: "Continuous Mentorship Deep Tracks", tag: "Open", body: "Long-form, cohort-based mentorship for graduates building real ventures.", icon: GraduationCap },
+            { title: "TechRise Schools Partnership", tag: "Open", body: "Embedding our curriculum directly into partner schools across the continent.", icon: Users },
           ].map(({ title, tag, body, icon: Icon }) => (
             <div key={title} className="glass rounded-3xl p-6 transition-transform hover:-translate-y-1">
               <div className="flex items-center justify-between">
