@@ -26,7 +26,7 @@ export const Route = createFileRoute("/")({
           name: "TechRise Africa",
           url: "https://traacademy.org/",
           email: "team.techrise26@gmail.com",
-          telephone: "+234-812-981-5038",
+          telephone: "+234-812-402-3599",
           description:
             "Premium practical tech academy training kids, teens, and young adults in coding, AI, digital marketing, and business across Africa.",
           address: {
