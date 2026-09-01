@@ -147,21 +147,23 @@ function ProgramsPage() {
 
       {/* CONVERT */}
       <section className="mt-14">
-        <Link
-          to="/register"
+        <a
+          href="https://wa.me/2348124023599?text=Hi%20TechRise%20Africa%2C%20I'm%20interested%20in%20mastering%20a%20digital%20and%20tech%20skill."
+          target="_blank"
+          rel="noopener noreferrer"
           className="group relative flex items-center justify-between gap-4 overflow-hidden rounded-[2rem] bg-gradient-to-r from-[oklch(0.65_0.25_295)] to-[oklch(0.68_0.24_0)] p-8 text-white shadow-[0_0_50px_-12px_oklch(0.65_0.25_295/0.7)] sm:p-10"
         >
           <div>
             <div className="text-xs font-semibold uppercase tracking-widest text-white/80">Limited seats available</div>
-            <h3 className="mt-2 font-display text-2xl font-bold sm:text-3xl">Proceed to Online Registration</h3>
+            <h3 className="mt-2 font-display text-2xl font-bold sm:text-3xl">Master a Digital and Tech Skill</h3>
             <p className="mt-1 max-w-xl text-sm text-white/80">
-              Two-minute intake. You'll select your track on the next screen.
+              Intensive, limited-capacity program. Cohort size strictly limited to 150 participants.
             </p>
           </div>
           <div className="flex items-center gap-2 rounded-full bg-white/15 px-5 py-3 text-sm font-semibold ring-1 ring-white/30 transition-transform group-hover:translate-x-1">
             <CheckCircle2 className="h-4 w-4" /> Start now <ArrowRight className="h-4 w-4" />
           </div>
-        </Link>
+        </a>
       </section>
     </div>
   );
