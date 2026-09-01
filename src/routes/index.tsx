@@ -95,7 +95,7 @@ function Index() {
               {[
                 ["150", "Mentored seats"],
                 ["4", "Core pillars"],
-                ["30 days", "Intensive build"],
+                ["3-6 months", "Intensive training"],
               ].map(([k, v]) => (
                 <div key={v} className="glass flex flex-col-reverse rounded-2xl p-4 text-center">
                   <dt className="mt-1 text-[11px] uppercase tracking-wider text-muted-foreground">{v}</dt>
