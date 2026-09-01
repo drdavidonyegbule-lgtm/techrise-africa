@@ -91,7 +91,7 @@ function Index() {
                 <MessageCircle className="h-4 w-4" /> Speak to an Academic Advisor
               </a>
             </div>
-            <dl className="mt-12 grid max-w-md grid-cols-3 gap-4">
+            <dl className="mt-12 grid max-w-xl grid-cols-3 gap-4">
               {[
                 ["150", "Mentored seats"],
                 ["4", "Core pillars"],
@@ -99,7 +99,7 @@ function Index() {
               ].map(([k, v]) => (
                 <div key={v} className="glass flex flex-col-reverse rounded-2xl p-4 text-center">
                   <dt className="mt-1 text-[11px] uppercase tracking-wider text-muted-foreground">{v}</dt>
-                  <dd className="font-display text-2xl font-bold text-foreground">{k}</dd>
+                  <dd className="font-display text-lg font-bold whitespace-nowrap text-foreground sm:text-xl md:text-2xl">{k}</dd>
                 </div>
               ))}
             </dl>
