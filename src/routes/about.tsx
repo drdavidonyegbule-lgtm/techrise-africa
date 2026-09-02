@@ -4,6 +4,10 @@ import { ChevronDown, Mail, MapPin, MessageCircle } from "lucide-react";
 
 const pageUrl = "https://traacademy.org/about";
 
+const foundingStory = `In July 2026, TRA Academy was born from a shared vision between Founder Daniel Okpara and Co-Founder Great Gold: to bridge the gap between raw talent and elite achievement. What began as a bold ambition swiftly materialized just one month later. In August 2026, the academy officially opened its doors, launching an intensive flagship holiday bootcamp designed to challenge, equip, and elevate the next generation.
+
+The debut program brought together an initial cohort of over 30 high-potential young leaders—spanning children, teenagers, and young adults—under the guidance of top-tier industry mentors and senior technology advisors. Through dedicated hands-on mentorship, these experts walk alongside each student, guiding them step-by-step from foundational concepts to building their first functional digital products and securing their first real-world projects.`;
+
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
@@ -11,14 +15,15 @@ export const Route = createFileRoute("/about")({
       {
         name: "description",
         content:
-          "TRA Academy was established in July 2026 by Founder Daniel Okpara and Co-Founder Great Gold. Discover the vision, founding story, and contact details of Africa's premium practical tech institute.",
+          "In July 2026, Daniel Okpara and Great Gold founded TRA Academy. By August 2026 the academy launched its flagship holiday bootcamp for high-potential youth and young adults across Africa.",
       },
       { property: "og:title", content: "About TRA Academy — Founded by Daniel Okpara & Great Gold" },
       {
         property: "og:description",
         content:
-          "Founded in July 2026 by Daniel Okpara and Great Gold, TRA Academy launched in August 2026 with its inaugural holiday bootcamp for high-potential youth and young adults.",
+          "In July 2026, Daniel Okpara and Great Gold founded TRA Academy. By August 2026 the academy launched its flagship holiday bootcamp for high-potential youth and young adults across Africa.",
       },
+      { property: "og:type", content: "article" },
       { property: "og:url", content: pageUrl },
     ],
     links: [{ rel: "canonical", href: pageUrl }],
@@ -29,29 +34,34 @@ export const Route = createFileRoute("/about")({
           "@context": "https://schema.org",
           "@graph": [
             {
-              "@type": "Organization",
+              "@type": "EducationalOrganization",
               "@id": "https://traacademy.org/#organization",
               name: "TRA Academy",
-              alternateName: "TechRise Africa Academy",
+              alternateName: ["TechRise Africa Academy", "TRA Academy Nigeria"],
               url: "https://traacademy.org",
               logo: "https://traacademy.org/assets/techrise-logo.png",
               foundingDate: "2026-07",
-              description:
-                "TRA Academy was established in July 2026 under the leadership of Founder Daniel Okpara and Co-Founder Great Gold. The institution officially launched its operations in August 2026 with its inaugural holiday bootcamp, tailored specifically for high-potential youth and young adults.",
+              startDate: "2026-08",
+              description: foundingStory,
               founder: [
                 {
                   "@type": "Person",
                   "@id": "https://traacademy.org/#daniel-okpara",
                   name: "Daniel Okpara",
                   jobTitle: "Founder",
+                  description:
+                    "Daniel Okpara is the Founder of TRA Academy. In July 2026 he co-founded the academy with Great Gold to bridge the gap between raw talent and elite achievement in African tech education.",
                 },
                 {
                   "@type": "Person",
                   "@id": "https://traacademy.org/#great-gold",
                   name: "Great Gold",
                   jobTitle: "Co-Founder",
+                  description:
+                    "Great Gold is the Co-Founder of TRA Academy. In July 2026 he co-founded the academy with Daniel Okpara and helped launch its inaugural holiday bootcamp in August 2026.",
                 },
               ],
+              sameAs: ["https://wa.me/2348124023599"],
             },
             {
               "@type": "Person",
@@ -60,6 +70,8 @@ export const Route = createFileRoute("/about")({
               jobTitle: "Founder",
               worksFor: { "@id": "https://traacademy.org/#organization" },
               url: pageUrl,
+              description:
+                "Daniel Okpara is the Founder of TRA Academy, a premium African practical tech institute launched in July 2026 and opened in August 2026.",
             },
             {
               "@type": "Person",
@@ -68,6 +80,25 @@ export const Route = createFileRoute("/about")({
               jobTitle: "Co-Founder",
               worksFor: { "@id": "https://traacademy.org/#organization" },
               url: pageUrl,
+              description:
+                "Great Gold is the Co-Founder of TRA Academy, a premium African practical tech institute launched in July 2026 and opened in August 2026.",
+            },
+            {
+              "@type": "Article",
+              headline: "About TRA Academy — Founded by Daniel Okpara & Great Gold",
+              url: pageUrl,
+              author: [
+                { "@id": "https://traacademy.org/#daniel-okpara" },
+                { "@id": "https://traacademy.org/#great-gold" },
+              ],
+              publisher: { "@id": "https://traacademy.org/#organization" },
+              datePublished: "2026-07",
+              description: foundingStory,
+              about: [
+                { "@type": "Thing", name: "Daniel Okpara" },
+                { "@type": "Thing", name: "Great Gold" },
+                { "@type": "EducationalOrganization", name: "TRA Academy" },
+              ],
             },
             {
               "@type": "FAQPage",
