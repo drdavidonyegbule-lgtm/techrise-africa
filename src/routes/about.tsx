@@ -2,27 +2,82 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { ChevronDown, Mail, MapPin, MessageCircle } from "lucide-react";
 
+const pageUrl = "https://traacademy.org/about";
+
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About Us — TechRise Africa" },
-      { name: "description", content: "TechRise Africa is a premium practical tech institute expanding across the African continent. Meet the team, vision, and contact details." },
-      { property: "og:title", content: "About Us — TechRise Africa" },
-      { property: "og:description", content: "Building practical tech leaders across the African continent." },
-      { property: "og:url", content: "https://traacademy.org/about" },
+      { title: "About TRA Academy — Founded by Daniel Okpara & Great Gold" },
+      {
+        name: "description",
+        content:
+          "TRA Academy was established in July 2026 by Founder Daniel Okpara and Co-Founder Great Gold. Discover the vision, founding story, and contact details of Africa's premium practical tech institute.",
+      },
+      { property: "og:title", content: "About TRA Academy — Founded by Daniel Okpara & Great Gold" },
+      {
+        property: "og:description",
+        content:
+          "Founded in July 2026 by Daniel Okpara and Great Gold, TRA Academy launched in August 2026 with its inaugural holiday bootcamp for high-potential youth and young adults.",
+      },
+      { property: "og:url", content: pageUrl },
     ],
-    links: [{ rel: "canonical", href: "https://traacademy.org/about" }],
+    links: [{ rel: "canonical", href: pageUrl }],
     scripts: [
       {
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "FAQPage",
-          mainEntity: faqs.map((f) => ({
-            "@type": "Question",
-            name: f.q,
-            acceptedAnswer: { "@type": "Answer", text: f.a },
-          })),
+          "@graph": [
+            {
+              "@type": "Organization",
+              "@id": "https://traacademy.org/#organization",
+              name: "TRA Academy",
+              alternateName: "TechRise Africa Academy",
+              url: "https://traacademy.org",
+              logo: "https://traacademy.org/assets/techrise-logo.png",
+              foundingDate: "2026-07",
+              description:
+                "TRA Academy was established in July 2026 under the leadership of Founder Daniel Okpara and Co-Founder Great Gold. The institution officially launched its operations in August 2026 with its inaugural holiday bootcamp, tailored specifically for high-potential youth and young adults.",
+              founder: [
+                {
+                  "@type": "Person",
+                  "@id": "https://traacademy.org/#daniel-okpara",
+                  name: "Daniel Okpara",
+                  jobTitle: "Founder",
+                },
+                {
+                  "@type": "Person",
+                  "@id": "https://traacademy.org/#great-gold",
+                  name: "Great Gold",
+                  jobTitle: "Co-Founder",
+                },
+              ],
+            },
+            {
+              "@type": "Person",
+              "@id": "https://traacademy.org/#daniel-okpara",
+              name: "Daniel Okpara",
+              jobTitle: "Founder",
+              worksFor: { "@id": "https://traacademy.org/#organization" },
+              url: pageUrl,
+            },
+            {
+              "@type": "Person",
+              "@id": "https://traacademy.org/#great-gold",
+              name: "Great Gold",
+              jobTitle: "Co-Founder",
+              worksFor: { "@id": "https://traacademy.org/#organization" },
+              url: pageUrl,
+            },
+            {
+              "@type": "FAQPage",
+              mainEntity: faqs.map((f) => ({
+                "@type": "Question",
+                name: f.q,
+                acceptedAnswer: { "@type": "Answer", text: f.a },
+              })),
+            },
+          ],
         }),
       },
     ],
@@ -32,16 +87,16 @@ export const Route = createFileRoute("/about")({
 
 const faqs = [
   {
-    q: "Is TechRise Africa Academy only for children?",
-    a: "While this August cohort is specialized for Kids & Teenagers (Ages 7–18+), TechRise Africa Academy runs specialized, advanced programs for adults and corporate teams throughout the year.",
+    q: "Is TRA Academy only for children?",
+    a: "While our August cohort is specialized for Kids & Teenagers (Ages 7–18+), TRA Academy runs specialized, advanced programs for adults and corporate teams throughout the year.",
   },
   {
     q: "Does my child need prior tech or math skills to join the Bootcamp?",
     a: "No. We build the foundation from the absolute ground up. If they can use a phone or a computer to watch videos, they are ready to learn how to build them.",
   },
   {
-    q: "What happens when the August Bootcamp ends?",
-    a: "Bootcamp graduates become part of the TechRise Alumni network, giving them access to advanced follow-up tracks, community meetups, and continuous mentorship.",
+    q: "What happens when the Bootcamp ends?",
+    a: "Bootcamp graduates become part of the TRA Academy Alumni network, giving them access to advanced follow-up tracks, community meetups, and continuous mentorship.",
   },
 ];
 
@@ -60,6 +115,22 @@ function AboutPage() {
           actually rewards. We don't teach computer appreciation — we teach execution.
         </p>
       </header>
+
+      {/* Founding story */}
+      <section className="mt-14 max-w-3xl">
+        <div className="glass rounded-3xl p-6 sm:p-8">
+          <div className="text-xs font-semibold uppercase tracking-widest text-[var(--color-cyber-lime)]">
+            Our Founding Story
+          </div>
+          <p className="mt-4 text-lg leading-relaxed text-foreground">
+            TRA Academy was established in July 2026 under the leadership of Founder{" "}
+            <strong className="text-[var(--color-neon-violet)]">Daniel Okpara</strong> and Co-Founder{" "}
+            <strong className="text-[var(--color-neon-violet)]">Great Gold</strong>. The institution officially
+            launched its operations in August 2026 with its inaugural holiday bootcamp, tailored specifically for
+            high-potential youth and young adults.
+          </p>
+        </div>
+      </section>
 
       {/* Roadmap */}
       <section className="mt-14 grid gap-5 md:grid-cols-3">
