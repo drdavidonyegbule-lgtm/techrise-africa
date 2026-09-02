@@ -50,10 +50,10 @@ function AboutPage() {
     <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6">
       <header className="max-w-3xl">
         <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-cyber-lime)]">
-          About TechRise Africa
+          About TRA Academy
         </span>
         <h1 className="mt-3 font-display text-5xl font-extrabold leading-tight text-foreground sm:text-6xl">
-          A continent-scale <span className="text-gradient">practical tech academy.</span>
+          A Premium African <span className="text-gradient">Practical Tech Institute.</span>
         </h1>
         <p className="mt-5 text-lg text-muted-foreground">
           We exist to close the gap between Africa's young talent and the skills the global digital economy
