@@ -118,6 +118,162 @@ function ProgramsPage() {
         </div>
       </section>
 
+      {/* TRAINING PATHWAYS */}
+      <section className="mt-20">
+        <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-neon-violet)]">
+          Training Pathways
+        </span>
+        <h2 className="mt-3 font-display text-3xl font-bold text-foreground sm:text-4xl">
+          Choose a pathway that matches your <span className="text-gradient">career goals</span>
+        </h2>
+        <p className="mt-3 max-w-2xl text-muted-foreground">
+          Then specialize through focused practical training.
+        </p>
+
+        <div className="mt-10 grid gap-6 lg:grid-cols-3">
+          {/* 01 Web & Software Development */}
+          <div className="glass gradient-border rounded-3xl p-7 transition-transform hover:-translate-y-1">
+            <span className="font-display text-sm font-bold text-[var(--color-cyber-lime)]">01</span>
+            <h3 className="mt-2 font-display text-xl font-bold uppercase tracking-wide text-foreground">
+              Web &amp; Software Development
+            </h3>
+            <div className="mt-5 space-y-4 text-sm">
+              <div>
+                <h4 className="font-semibold text-foreground">Comprehensive Full-Stack Options</h4>
+                <p className="mt-1 text-foreground/80">
+                  Frontend (8–12 weeks) focuses on UI/UX and React, while Backend (8–10 weeks) specializes in
+                  Laravel and database design.
+                </p>
+              </div>
+              <div>
+                <h4 className="font-semibold text-foreground">Specialized Mobile &amp; Game Dev</h4>
+                <p className="mt-1 text-foreground/80">
+                  Professional tracks for Mobile App Development and Mobile Game Development, both spanning
+                  10–14 weeks for full project completion.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* 02 Emerging Technologies */}
+          <div className="glass gradient-border rounded-3xl p-7 transition-transform hover:-translate-y-1">
+            <span className="font-display text-sm font-bold text-[var(--color-cyber-lime)]">02</span>
+            <h3 className="mt-2 font-display text-xl font-bold uppercase tracking-wide text-foreground">
+              Emerging Technologies
+            </h3>
+            <div className="mt-5 space-y-4 text-sm">
+              <div>
+                <h4 className="font-semibold text-foreground">Leading the AI &amp; Web3 Revolution</h4>
+                <p className="mt-1 text-foreground/80">
+                  Cutting-edge tracks in Artificial Intelligence (NLP, Computer Vision) and Smart Contract/Web3
+                  development for blockchain enthusiasts.
+                </p>
+              </div>
+              <div>
+                <h4 className="font-semibold text-foreground">Automated Software Development</h4>
+                <p className="mt-1 text-foreground/80">
+                  Specialized 8–12 week course focusing on CI/CD pipelines, API-driven systems, and workflow
+                  automation.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* 03 Engineering & Industrial Tech */}
+          <div className="glass gradient-border rounded-3xl p-7 transition-transform hover:-translate-y-1">
+            <span className="font-display text-sm font-bold text-[var(--color-cyber-lime)]">03</span>
+            <h3 className="mt-2 font-display text-xl font-bold uppercase tracking-wide text-foreground">
+              Engineering &amp; Industrial Tech
+            </h3>
+            <div className="mt-5 space-y-4 text-sm">
+              <div>
+                <h4 className="font-semibold text-foreground">Hands-on Industrial Training</h4>
+                <p className="mt-1 text-foreground/80">
+                  Focus on precision manufacturing and industrial logic with PLC and SCADA systems to CNC
+                  Machine operation.
+                </p>
+              </div>
+              <div>
+                <h4 className="font-semibold text-foreground">Robotics &amp; 3D Design</h4>
+                <p className="mt-1 text-foreground/80">
+                  Most intensive offering (12–16 weeks) involving practical electronics and circuit design in
+                  Embedded Systems &amp; Robotics.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* WHO IT'S FOR + PHILOSOPHY */}
+        <div className="mt-10 grid gap-6 md:grid-cols-2">
+          <div className="glass rounded-3xl p-7">
+            <h3 className="font-display text-lg font-bold uppercase tracking-wide text-foreground">
+              Who these programs are for
+            </h3>
+            <p className="mt-3 text-sm leading-relaxed text-foreground/80">
+              Students and graduates • Career switchers • Entrepreneurs • Developers • Tech enthusiasts •
+              Engineers • Professionals seeking practical upskilling.
+            </p>
+          </div>
+          <div className="glass rounded-3xl p-7">
+            <h3 className="font-display text-lg font-bold uppercase tracking-wide text-foreground">
+              Learning philosophy
+            </h3>
+            <p className="mt-3 text-sm leading-relaxed text-foreground/80">
+              TRA Academy combines structured instruction, practical application and industry-relevant
+              workflows so learners can leave each program with skills they can actually use.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* COURSE CATALOG */}
+      <section className="mt-16">
+        <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-cyber-lime)]">
+          Current program catalog
+        </span>
+        <h2 className="mt-3 font-display text-3xl font-bold text-foreground sm:text-4xl">
+          Course <span className="text-gradient">catalog</span>
+        </h2>
+
+        <div className="mt-8 glass overflow-hidden rounded-3xl">
+          <table className="w-full text-left text-sm">
+            <thead>
+              <tr className="border-b border-white/10 text-[11px] font-semibold uppercase tracking-widest text-muted-foreground">
+                <th className="px-5 py-4 sm:px-7">Course name</th>
+                <th className="px-5 py-4 text-right sm:px-7">Duration</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-white/5">
+              {[
+                ["Digital Marketing & Virtual Story Telling", "6–9 weeks"],
+                ["Frontend Web Development", "8–12 weeks"],
+                ["Backend Web Development (Laravel)", "8–10 weeks"],
+                ["Smart Contract & Web3 Development", "10–14 weeks"],
+                ["Embedded Systems & Robotics Training", "12–16 weeks"],
+                ["Professional Mobile App Development", "10–14 weeks"],
+                ["Mobile Game Development", "10–14 weeks"],
+                ["Cybersecurity Training", "8–12 weeks"],
+                ["3D Design & Printing", "6–10 weeks"],
+                ["CNC Machine Training", "8–12 weeks"],
+                ["Programming Language Training (Python, JS, etc.)", "6–12 weeks"],
+                ["Telegram API & Bot Development", "6–8 weeks"],
+                ["Automated Software Development", "8–12 weeks"],
+                ["Artificial Intelligence & Applied Automation (AI) Training", "10–14 weeks"],
+                ["Industrial Automation (PLC, SCADA, DCS)", "10–14 weeks"],
+              ].map(([name, duration]) => (
+                <tr key={name} className="transition-colors hover:bg-white/5">
+                  <td className="px-5 py-4 font-medium text-foreground sm:px-7">{name}</td>
+                  <td className="px-5 py-4 text-right font-semibold text-[var(--color-cyber-lime)] sm:px-7">
+                    {duration}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
       {/* CATALOG */}
       <section className="mt-16">
         <h2 className="font-display text-3xl font-bold text-foreground sm:text-4xl">
