@@ -83,13 +83,15 @@ export function Navbar() {
                   {l.label}
                 </Link>
               ))}
-              <Link
-                to="/register"
+              <a
+                href="https://wa.me/2348124023599?text=Hi%20TechRise%20Africa%2C%20I'd%20like%20to%20enroll%20in%20a%20program."
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => setOpen(false)}
                 className="mt-2 rounded-xl bg-gradient-to-r from-[oklch(0.65_0.25_295)] to-[oklch(0.68_0.24_0)] px-4 py-3 text-center text-sm font-semibold text-white"
               >
                 Enroll Now
-              </Link>
+              </a>
             </div>
           </div>
         )}
