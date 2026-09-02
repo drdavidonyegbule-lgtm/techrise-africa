@@ -52,12 +52,14 @@ export function Navbar() {
           </div>
 
           <div className="flex items-center gap-2">
-            <Link
-              to="/register"
+            <a
+              href="https://wa.me/2348124023599?text=Hi%20TechRise%20Africa%2C%20I'd%20like%20to%20enroll%20in%20a%20program."
+              target="_blank"
+              rel="noopener noreferrer"
               className="hidden rounded-full bg-gradient-to-r from-[oklch(0.65_0.25_295)] to-[oklch(0.68_0.24_0)] px-5 py-2.5 text-sm font-semibold text-white shadow-[0_0_30px_-6px_oklch(0.65_0.25_295/0.7)] transition-transform hover:scale-[1.02] sm:inline-flex"
             >
               Enroll Now
-            </Link>
+            </a>
             <button
               onClick={() => setOpen((v) => !v)}
               className="grid h-10 w-10 place-items-center rounded-full bg-white/5 text-foreground md:hidden"
