@@ -237,6 +237,82 @@ function Index() {
           </div>
         </div>
       </section>
+
+      {/* MASTERCLASS COHORT */}
+      <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6" id="masterclass">
+        <div className="text-center">
+          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-cyber-lime)]">
+            Cultivate Exceptional Mastery
+          </span>
+          <h2 className="mt-3 font-display text-4xl font-bold text-foreground sm:text-5xl">
+            Join Our Intensive <span className="text-gradient">Masterclass Cohort</span>
+          </h2>
+          <p className="mx-auto mt-5 max-w-3xl text-lg text-muted-foreground">
+            Our specialized training is thoughtfully structured to fit seamlessly into your academic calendar, work schedule,
+            and personal commitments — with personalized mentorship and hands-on learning designed to give you a complete,
+            practical experience.
+          </p>
+        </div>
+
+        <div className="mt-12 grid gap-6 lg:grid-cols-2">
+          {/* Weekday Operations */}
+          <div className="glass relative overflow-hidden rounded-3xl p-8 sm:p-10">
+            <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-[oklch(0.65_0.25_295)] opacity-20 blur-3xl" />
+            <div className="relative">
+              <div className="inline-flex items-center gap-2 rounded-full bg-white/5 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[var(--color-cyber-lime)] ring-1 ring-white/10">
+                Weekday Operations
+              </div>
+              <h3 className="mt-5 font-display text-2xl font-bold text-foreground">Masterclass Schedule</h3>
+              <ul className="mt-6 space-y-4">
+                {[
+                  { label: "Morning", time: "10:00 AM – 12:00 PM" },
+                  { label: "Afternoon", time: "1:00 PM – 3:00 PM" },
+                  { label: "Evening", time: "4:00 PM – 6:00 PM" },
+                ].map(({ label, time }) => (
+                  <li key={label} className="flex items-center justify-between gap-4 rounded-2xl bg-white/5 p-4 ring-1 ring-white/10">
+                    <span className="font-semibold text-foreground">{label}</span>
+                    <span className="text-sm font-medium text-[var(--color-cyber-lime)]">{time}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          {/* Weekend Intensive */}
+          <div className="gradient-border relative overflow-hidden rounded-3xl p-8 sm:p-10">
+            <div className="absolute inset-0 -z-10 bg-gradient-to-br from-[oklch(0.65_0.25_295/0.2)] via-transparent to-[oklch(0.68_0.24_0/0.2)]" />
+            <div className="relative">
+              <div className="inline-flex items-center gap-2 rounded-full bg-white/5 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[var(--color-neon-pink)] ring-1 ring-white/10">
+                Weekend Intensive
+              </div>
+              <h3 className="mt-5 font-display text-2xl font-bold text-foreground">Saturday Sprint</h3>
+              <div className="mt-6 rounded-2xl bg-white/5 p-6 ring-1 ring-white/10">
+                <div className="flex items-center justify-between gap-4">
+                  <span className="font-semibold text-foreground">Saturday</span>
+                  <span className="text-sm font-medium text-[var(--color-neon-pink)]">9:00 AM – 5:00 PM</span>
+                </div>
+              </div>
+              <div className="mt-6 flex flex-wrap gap-3 text-sm font-medium text-muted-foreground">
+                <span className="rounded-full bg-white/5 px-3 py-1.5 ring-1 ring-white/10">Flexible learning</span>
+                <span className="rounded-full bg-white/5 px-3 py-1.5 ring-1 ring-white/10">Expert mentorship</span>
+                <span className="rounded-full bg-white/5 px-3 py-1.5 ring-1 ring-white/10">Exceptional mastery</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-10 text-center">
+          <a
+            href="https://wa.me/2348124023599?text=Hi%20TechRise%20Africa%2C%20I'd%20like%20to%20join%20the%20masterclass%20cohort."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[oklch(0.65_0.25_295)] to-[oklch(0.68_0.24_0)] px-7 py-4 text-sm font-semibold text-white glow-violet transition-transform hover:scale-[1.02]"
+          >
+            Join the Masterclass Cohort
+            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+          </a>
+        </div>
+      </section>
     </div>
   );
 }
