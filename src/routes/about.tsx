@@ -154,11 +154,7 @@ function AboutPage() {
             Our Founding Story
           </div>
           <p className="mt-4 text-lg leading-relaxed text-foreground">
-            TRA Academy was established in July 2026 under the leadership of Founder{" "}
-            <strong className="text-[var(--color-neon-violet)]">Daniel Okpara</strong> and Co-Founder{" "}
-            <strong className="text-[var(--color-neon-violet)]">Great Gold</strong>. The institution officially
-            launched its operations in August 2026 with its inaugural holiday bootcamp, tailored specifically for
-            high-potential youth and young adults.
+            {foundingStory}
           </p>
         </div>
       </section>
