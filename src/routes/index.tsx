@@ -1,7 +1,14 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Bot, BrainCircuit, Code2, MessageCircle, Megaphone, Briefcase, Sparkles } from "lucide-react";
+import { ArrowRight, Bot, BrainCircuit, ChevronLeft, ChevronRight, Code2, MessageCircle, Megaphone, Briefcase, Sparkles } from "lucide-react";
 import heroBoy from "@/assets/hero-vr-boy.jpg.asset.json";
 import heroWoman from "@/assets/hero-vr-woman.jpg.asset.json";
+import galleryStudentLaptop from "@/assets/gallery-student-laptop.jpg.asset.json";
+import galleryYoungCoder from "@/assets/gallery-young-coder.jpg.asset.json";
+import galleryMentorSession from "@/assets/gallery-mentor-session.jpg.asset.json";
+import galleryPassingOutDay from "@/assets/gallery-passing-out-day.jpg.asset.json";
+import galleryTeamMentors from "@/assets/gallery-team-mentors.jpg.asset.json";
+import gallerySpeakerCeremony from "@/assets/gallery-speaker-ceremony.jpg.asset.json";
+import galleryBootcampCohort from "@/assets/gallery-bootcamp-cohort.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
