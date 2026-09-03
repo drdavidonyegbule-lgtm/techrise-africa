@@ -1,3 +1,4 @@
+import { useCallback, useEffect, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Bot, BrainCircuit, ChevronLeft, ChevronRight, Code2, MessageCircle, Megaphone, Briefcase, Sparkles } from "lucide-react";
 import heroBoy from "@/assets/hero-vr-boy.jpg.asset.json";
