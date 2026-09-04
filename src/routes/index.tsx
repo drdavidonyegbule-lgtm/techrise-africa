@@ -4,12 +4,12 @@ import { ArrowRight, Bot, BrainCircuit, ChevronLeft, ChevronRight, Code2, Messag
 import heroBoy from "@/assets/hero-vr-boy.jpg.asset.json";
 import heroWoman from "@/assets/hero-vr-woman.jpg.asset.json";
 import galleryStudentLaptop from "@/assets/gallery-student-laptop.jpg.asset.json";
-import galleryYoungCoder from "@/assets/gallery-young-coder.jpg.asset.json";
+import galleryStudentsMentors from "@/assets/gallery-students-mentors.jpg.asset.json";
 import galleryMentorSession from "@/assets/gallery-mentor-session.jpg.asset.json";
 import galleryPassingOutDay from "@/assets/gallery-passing-out-day.jpg.asset.json";
 import galleryTeamMentors from "@/assets/gallery-team-mentors.jpg.asset.json";
 import gallerySpeakerCeremony from "@/assets/gallery-speaker-ceremony.jpg.asset.json";
-import galleryBootcampCohort from "@/assets/gallery-bootcamp-cohort.jpg.asset.json";
+import galleryKidsPassingOut from "@/assets/gallery-kids-passing-out.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -65,13 +65,13 @@ function Index() {
   const [current, setCurrent] = useState(0);
 
   const galleryImages = [
-    { src: galleryStudentLaptop.url, alt: "TRA Academy student learning on a laptop during a practical session", caption: "Hands-on learning, real laptops, real progress" },
-    { src: galleryYoungCoder.url, alt: "Young coder focused during a TRA Academy kids bootcamp class", caption: "Building confidence from the first line of code" },
-    { src: galleryMentorSession.url, alt: "Mentor guiding a TRA Academy student through a project", caption: "One-on-one mentorship with industry experts" },
-    { src: galleryPassingOutDay.url, alt: "Students celebrating completion at TRA Academy passing out day", caption: "Celebrating every milestone" },
-    { src: galleryTeamMentors.url, alt: "TRA Academy mentors and instructors team photo", caption: "The mentors behind the mission" },
-    { src: gallerySpeakerCeremony.url, alt: "Guest speaker addressing TRA Academy students at a ceremony", caption: "Inspiration from leaders who have done it" },
-    { src: galleryBootcampCohort.url, alt: "TRA Academy bootcamp cohort group photo", caption: "Cohort culture: learn, build, rise together" },
+    { src: galleryStudentLaptop.url, alt: "TRA Academy student smiling while learning on a laptop during a practical session", caption: "Hands-on learning, real laptops, real progress" },
+    { src: galleryStudentsMentors.url, alt: "TRA Academy students and mentors together during the August bootcamp", caption: "Building confidence from the first line of code" },
+    { src: galleryMentorSession.url, alt: "Mentor guiding a TRA Academy student through a project on a laptop", caption: "One-on-one mentorship with industry experts" },
+    { src: galleryPassingOutDay.url, alt: "Guests and mentors celebrating at TRA Academy August bootcamp passing out day", caption: "Celebrating every milestone" },
+    { src: galleryTeamMentors.url, alt: "TRA Academy mentors and instructors in branded shirts at the passing out ceremony", caption: "The mentors behind the mission" },
+    { src: gallerySpeakerCeremony.url, alt: "Guest speaker addressing TRA Academy students at the passing out ceremony", caption: "Inspiration from leaders who have done it" },
+    { src: galleryKidsPassingOut.url, alt: "TRA Academy kids bootcamp cohort celebrating at the passing out day photo booth", caption: "Cohort culture: learn, build, rise together" },
   ];
 
   const nextSlide = useCallback(() => {
