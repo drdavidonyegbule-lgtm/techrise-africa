@@ -145,6 +145,76 @@ function Index() {
         </div>
       </section>
 
+      {/* GALLERY SLIDER */}
+      <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6">
+        <div className="mb-8 flex flex-col items-start justify-between gap-4 md:flex-row md:items-end">
+          <div>
+            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-cyber-lime)]">
+              Inside the Academy
+            </span>
+            <h2 className="mt-3 font-display text-3xl font-bold text-foreground sm:text-4xl">
+              Moments from <span className="text-gradient">TRA Academy</span>
+            </h2>
+          </div>
+          <div className="flex gap-2">
+            <button
+              type="button"
+              aria-label="Previous image"
+              onClick={prevSlide}
+              className="grid h-11 w-11 place-items-center rounded-full glass text-foreground transition-colors hover:bg-white/10"
+            >
+              <ChevronLeft className="h-5 w-5" />
+            </button>
+            <button
+              type="button"
+              aria-label="Next image"
+              onClick={nextSlide}
+              className="grid h-11 w-11 place-items-center rounded-full glass text-foreground transition-colors hover:bg-white/10"
+            >
+              <ChevronRight className="h-5 w-5" />
+            </button>
+          </div>
+        </div>
+
+        <div className="relative overflow-hidden rounded-[2rem] gradient-border">
+          <div
+            className="flex transition-transform duration-700 ease-[cubic-bezier(0.2,0.8,0.2,1)]"
+            style={{ transform: `translateX(-${current * 100}%)` }}
+          >
+            {galleryImages.map(({ src, alt, caption }) => (
+              <div key={alt} className="relative w-full flex-shrink-0">
+                <img
+                  src={src}
+                  alt={alt}
+                  className="aspect-[16/9] w-full object-cover md:aspect-[21/9]"
+                  width={1280}
+                  height={600}
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6 sm:p-8">
+                  <p className="font-display text-lg font-semibold text-white sm:text-xl">{caption}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-4 flex justify-center gap-2">
+          {galleryImages.map(({ alt }, i) => (
+            <button
+              key={alt}
+              type="button"
+              aria-label={`Go to slide ${i + 1}`}
+              onClick={() => setCurrent(i)}
+              className={`h-2 rounded-full transition-all ${
+                i === current ? "w-8 bg-[var(--color-cyber-lime)]" : "w-2 bg-white/20 hover:bg-white/40"
+              }`}
+            />
+          ))}
+        </div>
+      </section>
+
       {/* VISION */}
       <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6">
         <div className="grid gap-10 md:grid-cols-[1fr_1.2fr]">
