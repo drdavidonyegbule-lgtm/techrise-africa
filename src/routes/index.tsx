@@ -62,6 +62,31 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
+  const [current, setCurrent] = useState(0);
+
+  const galleryImages = [
+    { src: galleryStudentLaptop.url, alt: "TRA Academy student learning on a laptop during a practical session", caption: "Hands-on learning, real laptops, real progress" },
+    { src: galleryYoungCoder.url, alt: "Young coder focused during a TRA Academy kids bootcamp class", caption: "Building confidence from the first line of code" },
+    { src: galleryMentorSession.url, alt: "Mentor guiding a TRA Academy student through a project", caption: "One-on-one mentorship with industry experts" },
+    { src: galleryPassingOutDay.url, alt: "Students celebrating completion at TRA Academy passing out day", caption: "Celebrating every milestone" },
+    { src: galleryTeamMentors.url, alt: "TRA Academy mentors and instructors team photo", caption: "The mentors behind the mission" },
+    { src: gallerySpeakerCeremony.url, alt: "Guest speaker addressing TRA Academy students at a ceremony", caption: "Inspiration from leaders who have done it" },
+    { src: galleryBootcampCohort.url, alt: "TRA Academy bootcamp cohort group photo", caption: "Cohort culture: learn, build, rise together" },
+  ];
+
+  const nextSlide = useCallback(() => {
+    setCurrent((i) => (i + 1) % galleryImages.length);
+  }, [galleryImages.length]);
+
+  const prevSlide = useCallback(() => {
+    setCurrent((i) => (i - 1 + galleryImages.length) % galleryImages.length);
+  }, [galleryImages.length]);
+
+  useEffect(() => {
+    const timer = setInterval(nextSlide, 5000);
+    return () => clearInterval(timer);
+  }, [nextSlide]);
+
   return (
     <div>
       {/* HERO */}
@@ -142,6 +167,76 @@ function Index() {
               <div className="text-sm font-semibold text-foreground">Kids Bootcamp 2026</div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* GALLERY SLIDER */}
+      <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6">
+        <div className="mb-8 flex flex-col items-start justify-between gap-4 md:flex-row md:items-end">
+          <div>
+            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-cyber-lime)]">
+              Inside the Academy
+            </span>
+            <h2 className="mt-3 font-display text-3xl font-bold text-foreground sm:text-4xl">
+              Moments from <span className="text-gradient">TRA Academy</span>
+            </h2>
+          </div>
+          <div className="flex gap-2">
+            <button
+              type="button"
+              aria-label="Previous image"
+              onClick={prevSlide}
+              className="grid h-11 w-11 place-items-center rounded-full glass text-foreground transition-colors hover:bg-white/10"
+            >
+              <ChevronLeft className="h-5 w-5" />
+            </button>
+            <button
+              type="button"
+              aria-label="Next image"
+              onClick={nextSlide}
+              className="grid h-11 w-11 place-items-center rounded-full glass text-foreground transition-colors hover:bg-white/10"
+            >
+              <ChevronRight className="h-5 w-5" />
+            </button>
+          </div>
+        </div>
+
+        <div className="relative overflow-hidden rounded-[2rem] gradient-border">
+          <div
+            className="flex transition-transform duration-700 ease-[cubic-bezier(0.2,0.8,0.2,1)]"
+            style={{ transform: `translateX(-${current * 100}%)` }}
+          >
+            {galleryImages.map(({ src, alt, caption }) => (
+              <div key={alt} className="relative w-full flex-shrink-0">
+                <img
+                  src={src}
+                  alt={alt}
+                  className="aspect-[16/9] w-full object-cover md:aspect-[21/9]"
+                  width={1280}
+                  height={600}
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6 sm:p-8">
+                  <p className="font-display text-lg font-semibold text-white sm:text-xl">{caption}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-4 flex justify-center gap-2">
+          {galleryImages.map(({ alt }, i) => (
+            <button
+              key={alt}
+              type="button"
+              aria-label={`Go to slide ${i + 1}`}
+              onClick={() => setCurrent(i)}
+              className={`h-2 rounded-full transition-all ${
+                i === current ? "w-8 bg-[var(--color-cyber-lime)]" : "w-2 bg-white/20 hover:bg-white/40"
+              }`}
+            />
+          ))}
         </div>
       </section>
 
