@@ -62,6 +62,31 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
+  const [current, setCurrent] = useState(0);
+
+  const galleryImages = [
+    { src: galleryStudentLaptop.url, alt: "TRA Academy student learning on a laptop during a practical session", caption: "Hands-on learning, real laptops, real progress" },
+    { src: galleryYoungCoder.url, alt: "Young coder focused during a TRA Academy kids bootcamp class", caption: "Building confidence from the first line of code" },
+    { src: galleryMentorSession.url, alt: "Mentor guiding a TRA Academy student through a project", caption: "One-on-one mentorship with industry experts" },
+    { src: galleryPassingOutDay.url, alt: "Students celebrating completion at TRA Academy passing out day", caption: "Celebrating every milestone" },
+    { src: galleryTeamMentors.url, alt: "TRA Academy mentors and instructors team photo", caption: "The mentors behind the mission" },
+    { src: gallerySpeakerCeremony.url, alt: "Guest speaker addressing TRA Academy students at a ceremony", caption: "Inspiration from leaders who have done it" },
+    { src: galleryBootcampCohort.url, alt: "TRA Academy bootcamp cohort group photo", caption: "Cohort culture: learn, build, rise together" },
+  ];
+
+  const nextSlide = useCallback(() => {
+    setCurrent((i) => (i + 1) % galleryImages.length);
+  }, [galleryImages.length]);
+
+  const prevSlide = useCallback(() => {
+    setCurrent((i) => (i - 1 + galleryImages.length) % galleryImages.length);
+  }, [galleryImages.length]);
+
+  useEffect(() => {
+    const timer = setInterval(nextSlide, 5000);
+    return () => clearInterval(timer);
+  }, [nextSlide]);
+
   return (
     <div>
       {/* HERO */}
