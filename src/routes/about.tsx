@@ -135,8 +135,8 @@ const faqs = [
 ];
 
 const phases = [
-  { phase: "Phase 01", title: "Eneka — Origin Hub", body: "Our maiden bootcamp campus inside RCCG The Faithful God Parish, Unity Estate." },
-  { phase: "Phase 02", title: "Regional Expansion", body: "Hubs across the South-South and South-East, plus a Lagos creator studio." },
+  { phase: "Phase 01", title: "Elimgbu — TRA Academy Hub", body: "Our Premium Practical Tech Institute in the heart of Port Harcourt, Elimgbu." },
+  { phase: "Phase 02", title: "Regional Expansion", body: "Hubs across the South-South and South-East, Head office in Abuja and our Lagos creator studio." },
   { phase: "Phase 03", title: "Pan-African Network", body: "Partnership campuses across West, East, and Southern Africa, plus a live LMS." },
 ];
 
