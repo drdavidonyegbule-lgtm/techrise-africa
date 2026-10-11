@@ -197,3 +197,8 @@ a[role="button"]:active,
     animation-range: entry 0% cover 30%;
   }
 }
+
+/* Gallery photos and controls stay visible throughout the scroll range. */
+.academy-gallery {
+  animation: none;
+}
