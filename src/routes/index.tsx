@@ -1,15 +1,10 @@
 import { useCallback, useEffect, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Bot, BrainCircuit, ChevronLeft, ChevronRight, Code2, MessageCircle, Megaphone, Briefcase, Sparkles } from "lucide-react";
+import { ArrowRight, Bot, BrainCircuit, ChevronLeft, ChevronRight, Code2, MessageCircle, Megaphone, Briefcase, Sparkles, Pause, Play } from "lucide-react";
 import heroBoy from "@/assets/hero-vr-boy.jpg.asset.json";
 import heroWoman from "@/assets/hero-vr-woman.jpg.asset.json";
-import galleryStudentLaptop from "@/assets/gallery-student-laptop.jpg.asset.json";
-import galleryStudentsMentors from "@/assets/gallery-students-mentors.jpg.asset.json";
-import galleryMentorSession from "@/assets/gallery-mentor-session.jpg.asset.json";
-import galleryPassingOutDay from "@/assets/gallery-passing-out-day.jpg.asset.json";
-import galleryTeamMentors from "@/assets/gallery-team-mentors.jpg.asset.json";
-import gallerySpeakerCeremony from "@/assets/gallery-speaker-ceremony.jpg.asset.json";
-import galleryKidsPassingOut from "@/assets/gallery-kids-passing-out.jpg.asset.json";
+import { galleryImages } from "@/lib/gallery";
+import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -19,6 +14,8 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: "TechRise Africa — Practical Tech Academy" },
       { property: "og:description", content: "Coding · AI · Digital Marketing · Business. Elite, practical tech education for the next generation of African builders." },
       { property: "og:url", content: "https://traacademy.org/" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
       { rel: "canonical", href: "https://traacademy.org/" },
@@ -26,6 +23,11 @@ export const Route = createFileRoute("/")({
       { rel: "preload", as: "image", href: heroBoy.url, fetchpriority: "high" } as unknown as { rel: string; href: string },
     ],
     scripts: [
+      { type: "application/ld+json", children: JSON.stringify({
+        "@context": "https://schema.org", "@type": "ImageGallery",
+        name: "Moments from TRA Academy",
+        image: galleryImages.map((image) => ({ "@type": "ImageObject", contentUrl: `https://techrise-africa.lovable.app${image.src}`, caption: image.caption, description: image.alt })),
+      }) },
       {
         type: "application/ld+json",
         children: JSON.stringify({
@@ -64,15 +66,7 @@ export const Route = createFileRoute("/")({
 function Index() {
   const [current, setCurrent] = useState(0);
 
-  const galleryImages = [
-    { src: galleryStudentLaptop.url, alt: "TRA Academy student smiling while learning on a laptop during a practical session", caption: "Hands-on learning, real laptops, real progress" },
-    { src: galleryStudentsMentors.url, alt: "TRA Academy students and mentors together during the August bootcamp", caption: "Building confidence from the first line of code" },
-    { src: galleryMentorSession.url, alt: "Mentor guiding a TRA Academy student through a project on a laptop", caption: "One-on-one mentorship with industry experts" },
-    { src: galleryPassingOutDay.url, alt: "Guests and mentors celebrating at TRA Academy August bootcamp passing out day", caption: "Celebrating every milestone" },
-    { src: galleryTeamMentors.url, alt: "TRA Academy mentors and instructors in branded shirts at the passing out ceremony", caption: "The mentors behind the mission" },
-    { src: gallerySpeakerCeremony.url, alt: "Guest speaker addressing TRA Academy students at the passing out ceremony", caption: "Inspiration from leaders who have done it" },
-    { src: galleryKidsPassingOut.url, alt: "TRA Academy kids bootcamp cohort celebrating at the passing out day photo booth", caption: "Cohort culture: learn, build, rise together" },
-  ];
+  const [paused, setPaused] = useState(false);
 
   const nextSlide = useCallback(() => {
     setCurrent((i) => (i + 1) % galleryImages.length);
@@ -83,9 +77,10 @@ function Index() {
   }, [galleryImages.length]);
 
   useEffect(() => {
-    const timer = setInterval(nextSlide, 5000);
+    if (paused || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const timer = setInterval(nextSlide, 7000);
     return () => clearInterval(timer);
-  }, [nextSlide]);
+  }, [nextSlide, paused]);
 
   return (
     <div>
@@ -171,71 +166,36 @@ function Index() {
       </section>
 
       {/* GALLERY SLIDER */}
-      <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6">
-        <div className="mb-8 flex flex-col items-start justify-between gap-4 md:flex-row md:items-end">
+      <section aria-label="TRA Academy photo gallery" className="academy-gallery mx-auto max-w-7xl px-4 py-10 sm:px-6">
+        <div className="mb-6 flex flex-wrap items-end justify-between gap-5">
           <div>
-            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-cyber-lime)]">
-              Inside the Academy
-            </span>
+            <span className="text-xs font-semibold uppercase text-cyber-lime">Inside the Academy</span>
             <h2 className="mt-3 font-display text-3xl font-bold text-foreground sm:text-4xl">
               Moments from <span className="text-gradient">TRA Academy</span>
             </h2>
           </div>
-          <div className="flex gap-2">
-            <button
-              type="button"
-              aria-label="Previous image"
-              onClick={prevSlide}
-              className="grid h-11 w-11 place-items-center rounded-full glass text-foreground transition-colors hover:bg-white/10"
-            >
-              <ChevronLeft className="h-5 w-5" />
-            </button>
-            <button
-              type="button"
-              aria-label="Next image"
-              onClick={nextSlide}
-              className="grid h-11 w-11 place-items-center rounded-full glass text-foreground transition-colors hover:bg-white/10"
-            >
-              <ChevronRight className="h-5 w-5" />
-            </button>
+          <div className="flex items-center gap-2">
+            <span className="mr-2 text-sm tabular-nums text-muted-foreground">{current + 1} / {galleryImages.length}</span>
+            <Button variant="outline" size="icon" className="h-11 w-11" aria-label="Previous image" title="Previous image" onClick={() => { setPaused(true); prevSlide(); }}><ChevronLeft /></Button>
+            <Button variant="outline" size="icon" className="h-11 w-11" aria-label={paused ? "Play slideshow" : "Pause slideshow"} title={paused ? "Play slideshow" : "Pause slideshow"} onClick={() => setPaused((value) => !value)}>{paused ? <Play /> : <Pause />}</Button>
+            <Button variant="outline" size="icon" className="h-11 w-11" aria-label="Next image" title="Next image" onClick={() => { setPaused(true); nextSlide(); }}><ChevronRight /></Button>
           </div>
         </div>
-
-        <div className="relative overflow-hidden rounded-[2rem] gradient-border">
-          <div
-            className="flex transition-transform duration-700 ease-[cubic-bezier(0.2,0.8,0.2,1)]"
-            style={{ transform: `translateX(-${current * 100}%)` }}
-          >
-            {galleryImages.map(({ src, alt, caption }) => (
-              <div key={alt} className="relative w-full flex-shrink-0">
-                <img
-                  src={src}
-                  alt={alt}
-                  className="aspect-[16/9] w-full object-cover md:aspect-[21/9]"
-                  width={1280}
-                  height={600}
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6 sm:p-8">
-                  <p className="font-display text-lg font-semibold text-white sm:text-xl">{caption}</p>
-                </div>
-              </div>
+        <div className="overflow-hidden rounded-lg border border-border bg-card" aria-roledescription="carousel">
+          <div className="flex transition-transform duration-500 motion-reduce:transition-none" style={{ transform: `translateX(-${current * 100}%)` }}>
+            {galleryImages.map(({ src, alt, caption }, index) => (
+              <figure key={src} className="min-w-0 basis-full shrink-0" aria-roledescription="slide" aria-label={`${index + 1} of ${galleryImages.length}`} aria-hidden={index !== current}>
+                <img src={src} alt={alt} className="h-[420px] w-full object-contain sm:h-[540px] lg:h-[600px]" width={1280} height={600} loading="eager" decoding="async" />
+                <figcaption className="flex min-h-20 items-center border-t border-border px-5 py-4 font-display text-base font-semibold text-foreground sm:text-lg">{caption}</figcaption>
+              </figure>
             ))}
           </div>
         </div>
-
-        <div className="mt-4 flex justify-center gap-2">
-          {galleryImages.map(({ alt }, i) => (
-            <button
-              key={alt}
-              type="button"
-              aria-label={`Go to slide ${i + 1}`}
-              onClick={() => setCurrent(i)}
-              className={`h-2 rounded-full transition-all ${
-                i === current ? "w-8 bg-[var(--color-cyber-lime)]" : "w-2 bg-white/20 hover:bg-white/40"
-              }`}
-            />
+        <div className="mt-4 grid grid-cols-4 gap-2 sm:grid-cols-7 sm:gap-3" aria-label="Choose a gallery photo">
+          {galleryImages.map(({ src, alt }, index) => (
+            <Button key={src} variant="outline" aria-label={`Go to slide ${index + 1}`} aria-pressed={index === current} title={alt} onClick={() => { setPaused(true); setCurrent(index); }} className={`h-20 min-w-0 overflow-hidden p-0 sm:h-24 ${index === current ? "border-cyber-lime ring-2 ring-cyber-lime" : "border-border"}`}>
+              <img src={src} alt="" className="h-full w-full object-contain" width={160} height={96} loading="eager" decoding="async" />
+            </Button>
           ))}
         </div>
       </section>

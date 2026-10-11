@@ -17,6 +17,8 @@ export const Route = createFileRoute("/payment/success")({
       { name: "description", content: "Your TechRise Kids Bootcamp 2026 registration has been received. Admissions will confirm your seat shortly." },
       { property: "og:title", content: "Registration Received — TechRise Africa" },
       { property: "og:description", content: "Your TechRise Kids Bootcamp 2026 registration has been received." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { name: "robots", content: "noindex" },
     ],
   }),

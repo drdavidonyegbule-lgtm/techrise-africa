@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { ChevronDown, Mail, MapPin, MessageCircle, Quote, Target, Users } from "lucide-react";
+import danielPortrait from "@/assets/daniel-okpara-founder-tra-academy.jpg.asset.json";
 
 const pageUrl = "https://traacademy.org/about";
 
@@ -24,6 +25,7 @@ export const Route = createFileRoute("/about")({
           "In July 2026, Daniel Okpara and Great Gold founded TRA Academy. By August 2026 the academy launched its flagship holiday bootcamp for high-potential youth and young adults across Africa.",
       },
       { property: "og:type", content: "article" },
+      { name: "twitter:card", content: "summary_large_image" },
       { property: "og:url", content: pageUrl },
     ],
     links: [{ rel: "canonical", href: pageUrl }],
@@ -48,7 +50,7 @@ export const Route = createFileRoute("/about")({
                   "@type": "Person",
                   "@id": "https://traacademy.org/#daniel-okpara",
                   name: "Daniel Okpara",
-                  jobTitle: "Founder",
+                   jobTitle: "Founder & CEO",
                   description:
                     "Daniel Okpara is the Founder of TRA Academy. In July 2026 he co-founded the academy with Great Gold to bridge the gap between raw talent and elite achievement in African tech education.",
                 },
@@ -67,7 +69,8 @@ export const Route = createFileRoute("/about")({
               "@type": "Person",
               "@id": "https://traacademy.org/#daniel-okpara",
               name: "Daniel Okpara",
-              jobTitle: "Founder",
+               jobTitle: "Founder & CEO",
+               image: `https://techrise-africa.lovable.app${danielPortrait.url}`,
               worksFor: { "@id": "https://traacademy.org/#organization" },
               url: pageUrl,
               description:
@@ -218,21 +221,27 @@ function AboutPage() {
               Leadership
             </div>
             <h2 className="mt-2 font-display text-3xl font-bold text-foreground sm:text-4xl">
-              Meet the founders.
+              Meet the Founder
             </h2>
           </div>
         </div>
-        <div className="mt-8 grid gap-6 md:grid-cols-2">
-          <FounderCard
-            name="Daniel Okpara"
-            role="Founder"
-            bio="Daniel co-founded TRA Academy in July 2026 to turn Africa's raw tech talent into elite, market-ready builders."
+        <div className="mt-8 grid max-w-5xl gap-8 md:grid-cols-[320px_1fr] md:items-center lg:gap-12">
+          <img
+            src={danielPortrait.url}
+            alt="Daniel Okpara, Founder and CEO of TRA Academy, speaking at an academy event"
+            width={768}
+            height={808}
+            loading="lazy"
+            decoding="async"
+            className="aspect-[768/808] w-full max-w-sm rounded-lg object-contain"
           />
-          <FounderCard
-            name="Great Gold"
-            role="Co-Founder"
-            bio="Great Gold helped launch the academy's inaugural bootcamp and drives its expansion across regions and partnerships."
-          />
+          <div>
+            <h3 className="font-display text-3xl font-bold text-foreground">Daniel Okpara</h3>
+            <p className="mt-3 text-base font-semibold text-cyber-lime">Founder &amp; CEO</p>
+            <p className="mt-6 max-w-xl text-base leading-loose text-muted-foreground sm:text-lg">
+              Founded in July 2026, TRA Academy is the result of Daniel Okpara’s vision to transform Africa's raw tech talent into an elite workforce of market-ready builders.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -351,24 +360,6 @@ function MissionCard({ icon, title, body }: { icon: React.ReactNode; title: stri
       </div>
       <h3 className="mt-4 font-display text-lg font-bold text-foreground">{title}</h3>
       <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{body}</p>
-    </div>
-  );
-}
-
-function FounderCard({ name, role, bio }: { name: string; role: string; bio: string }) {
-  return (
-    <div className="glass flex flex-col rounded-3xl p-6 sm:flex-row sm:items-start sm:gap-5">
-      <div className="grid h-16 w-16 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-[var(--color-neon-violet)] to-[var(--color-neon-pink)] font-display text-xl font-bold text-white shadow-lg">
-        {name
-          .split(" ")
-          .map((n) => n[0])
-          .join("")}
-      </div>
-      <div className="mt-4 sm:mt-0">
-        <h3 className="font-display text-xl font-bold text-foreground">{name}</h3>
-        <div className="mt-1 text-sm font-semibold text-[var(--color-cyber-lime)]">{role}</div>
-        <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{bio}</p>
-      </div>
     </div>
   );
 }

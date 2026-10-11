@@ -10,6 +10,8 @@ export const Route = createFileRoute("/programs")({
       { property: "og:title", content: "Programs & Admissions — TechRise Africa" },
       { property: "og:description", content: "Maiden Edition Kids Bootcamp 2026 — intensive 1-month build. Limited seats." },
       { property: "og:url", content: "https://traacademy.org/programs" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: "https://traacademy.org/programs" }],
     scripts: [
