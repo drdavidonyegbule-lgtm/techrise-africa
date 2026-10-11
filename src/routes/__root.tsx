@@ -6,6 +6,7 @@ import {
   useRouter,
   HeadContent,
   Scripts,
+  type ErrorComponentProps,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
 
@@ -38,7 +39,7 @@ function NotFoundComponent() {
   );
 }
 
-function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
+function ErrorComponent({ error, reset }: ErrorComponentProps) {
   console.error(error);
   const router = useRouter();
   useEffect(() => {
@@ -92,8 +93,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "TechRise Africa — Practical Tech Academy" },
       { name: "twitter:description", content: "Premium practical tech academy training kids, teens, and young adults in coding, AI, digital marketing, and business across Africa." },
-      { property: "og:image", content: "https://traacademy.org/assets/og-image.png" },
-      { name: "twitter:image", content: "https://traacademy.org/assets/og-image.png" },
     ],
     links: [
       {

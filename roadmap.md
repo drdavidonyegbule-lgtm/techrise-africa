@@ -1,3 +1,3 @@
-- [ ] Update Daniel-only leadership profile and portrait.
-- [ ] Show full gallery photos with clear slide controls and image indexing metadata.
-- [ ] Verify photos and interactions, then apply required package update.
+- [x] Update Daniel-only leadership profile and portrait.
+- [x] Show full gallery photos with clear slide controls and image indexing metadata.
+- [x] Verify photos and interactions, then apply required package update.
