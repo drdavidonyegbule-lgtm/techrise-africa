@@ -121,22 +121,34 @@ export const Route = createFileRoute("/about")({
 
 const faqs = [
   {
-    q: "Is TRA Academy only for children?",
-    a: "While our August cohort is specialized for Kids & Teenagers (Ages 7–18+), TRA Academy runs specialized, advanced programs for adults and corporate teams throughout the year.",
+    q: "The August Bootcamp has ended — how can I still join TRA Academy?",
+    a: "Our maiden holiday bootcamp was a huge success, and its graduates now form our Alumni network with access to advanced follow-up tracks and continuous mentorship. Enrollment is now open for our Intensive Masterclass Cohort, structured around weekday and weekend schedules so students, workers, and professionals can all participate. Reach admissions on WhatsApp at 0812 402 3599 to reserve a place.",
   },
   {
-    q: "Does my child need prior tech or math skills to join the Bootcamp?",
-    a: "No. We build the foundation from the absolute ground up. If they can use a phone or a computer to watch videos, they are ready to learn how to build them.",
+    q: "Who can enroll in the Masterclass Cohort?",
+    a: "Anyone serious about building a real tech skill — children, teenagers, young adults, and working professionals. Cohort size is strictly limited to 150 participants so every learner gets personalized mentorship and hands-on project guidance.",
   },
   {
-    q: "What happens when the Bootcamp ends?",
-    a: "Bootcamp graduates become part of the TRA Academy Alumni network, giving them access to advanced follow-up tracks, community meetups, and continuous mentorship.",
+    q: "Do I need prior tech experience or coding knowledge?",
+    a: "No. We build from the absolute ground up. If you can use a phone or a computer, you are ready to learn how to build for them — our senior mentors walk you step-by-step from foundational concepts to your first functional digital product.",
+  },
+  {
+    q: "What programs and pathways does TRA Academy offer?",
+    a: "We train across three pathways: Web & Software Development, Emerging Technologies (including AI, data, and immersive tech), and Engineering & Industrial Tech. Every program is practical and project-based — you finish with real work, not just certificates.",
+  },
+  {
+    q: "What happens after I complete a program?",
+    a: "Graduates join the TRA Academy Alumni network, where they receive advanced follow-up tracks, community meetups, portfolio reviews, and support toward their first real-world clients and projects.",
+  },
+  {
+    q: "Can schools, organizations, or partners collaborate with TRA Academy?",
+    a: "Absolutely. We welcome partnerships with schools, corporate teams, and organizations across Africa — from sponsored training cohorts to regional hub expansion. Contact us at team.techrise26@gmail.com or on WhatsApp to start the conversation.",
   },
 ];
 
 const phases = [
-  { phase: "Phase 01", title: "Eneka — Origin Hub", body: "Our maiden bootcamp campus inside RCCG The Faithful God Parish, Unity Estate." },
-  { phase: "Phase 02", title: "Regional Expansion", body: "Hubs across the South-South and South-East, plus a Lagos creator studio." },
+  { phase: "Phase 01", title: "Elimgbu — TRA Academy Hub", body: "Our Premium Practical Tech Institute in the heart of Port Harcourt, Elimgbu." },
+  { phase: "Phase 02", title: "Regional Expansion", body: "Hubs across the South-South and South-East, Head office in Abuja and our Lagos creator studio." },
   { phase: "Phase 03", title: "Pan-African Network", body: "Partnership campuses across West, East, and Southern Africa, plus a live LMS." },
 ];
 
