@@ -34,11 +34,11 @@ export const Route = createFileRoute("/register")({
       { name: "description", content: "Complete your 2-minute intake to secure a seat in the TechRise Kids Bootcamp 2026 August Cohort." },
       { property: "og:title", content: "Register — TechRise Africa" },
       { property: "og:description", content: "Quick 2-minute intake to secure your child's seat in the TechRise Kids Bootcamp 2026 — strictly capped at 150 seats." },
-      { property: "og:url", content: "https://techrise-africa.lovable.app/register" },
+      { property: "og:url", content: "https://traacademy.org/register" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "https://techrise-africa.lovable.app/register" }],
+    links: [{ rel: "canonical", href: "https://traacademy.org/register" }],
   }),
   component: RegisterPage,
 });

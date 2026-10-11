@@ -32,3 +32,6 @@ dist-ssr
 *.sw?
 
 .netlify/
+
+.vercel
+package-lock.json

@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Award, Briefcase, CheckCircle2, GraduationCap, Users } from "lucide-react";
-import flyer from "@/assets/bootcamp-flyer.jpg.asset.json";
+import flyer from "@/assets/techrise-kids-bootcamp-2026-flyer.jpg.asset.json";
 
 export const Route = createFileRoute("/programs")({
   head: () => ({
@@ -11,6 +11,8 @@ export const Route = createFileRoute("/programs")({
       { property: "og:description", content: "Maiden Edition Kids Bootcamp 2026 — intensive 1-month build. Limited seats." },
       { property: "og:url", content: "https://traacademy.org/programs" },
       { property: "og:type", content: "website" },
+      { property: "og:image", content: "https://traacademy.org/assets/techrise-kids-bootcamp-2026-flyer.jpg" },
+      { property: "og:image:alt", content: "TechRise Kids Bootcamp 2026 flyer" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: "https://traacademy.org/programs" }],
@@ -114,7 +116,7 @@ function ProgramsPage() {
           </div>
 
           <div className="relative min-h-[320px] overflow-hidden md:min-h-full">
-            <img src={flyer.url} alt="TechRise Kids Bootcamp 2026 flyer" className="absolute inset-0 h-full w-full object-cover" />
+            <img src={flyer.url} alt="TechRise Kids Bootcamp 2026 flyer — August cohort for ages 7–18+" width={1024} height={1280} loading="lazy" decoding="async" className="absolute inset-0 h-full w-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-l from-transparent via-[oklch(0.13_0.04_295/0.3)] to-[oklch(0.13_0.04_295)]/80 md:bg-gradient-to-l md:via-transparent" />
           </div>
         </div>

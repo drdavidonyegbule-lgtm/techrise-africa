@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Bot, BrainCircuit, ChevronLeft, ChevronRight, Code2, MessageCircle, Megaphone, Briefcase, Sparkles, Pause, Play } from "lucide-react";
-import heroBoy from "@/assets/hero-vr-boy.jpg.asset.json";
-import heroWoman from "@/assets/hero-vr-woman.jpg.asset.json";
+import heroBoy from "@/assets/techrise-kids-bootcamp-young-coder-vr.jpg.asset.json";
+import heroWoman from "@/assets/techrise-student-exploring-ai-tools.jpg.asset.json";
 import { galleryImages } from "@/lib/gallery";
 import { Button } from "@/components/ui/button";
 
@@ -15,6 +15,7 @@ export const Route = createFileRoute("/")({
       { property: "og:description", content: "Coding · AI · Digital Marketing · Business. Elite, practical tech education for the next generation of African builders." },
       { property: "og:url", content: "https://traacademy.org/" },
       { property: "og:type", content: "website" },
+      { property: "og:image", content: "https://traacademy.org/assets/tra-academy-og-image.png" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
@@ -26,15 +27,18 @@ export const Route = createFileRoute("/")({
       { type: "application/ld+json", children: JSON.stringify({
         "@context": "https://schema.org", "@type": "ImageGallery",
         name: "Moments from TRA Academy",
-        image: galleryImages.map((image) => ({ "@type": "ImageObject", contentUrl: `https://techrise-africa.lovable.app${image.src}`, caption: image.caption, description: image.alt })),
+        image: galleryImages.map((image) => ({ "@type": "ImageObject", contentUrl: `https://traacademy.org${image.src}`, caption: image.caption, description: image.alt })),
       }) },
       {
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "EducationalOrganization",
-          name: "TechRise Africa",
+          name: "TRA Academy",
+          alternateName: ["TechRise Africa", "TechRise Africa Hub", "TRA Academy Nigeria"],
           url: "https://traacademy.org/",
+          logo: "https://traacademy.org/android-chrome-512x512.png",
+          image: "https://traacademy.org/assets/tra-academy-og-image.png",
           email: "team.techrise26@gmail.com",
           telephone: "+234-812-402-3599",
           description:
@@ -54,7 +58,8 @@ export const Route = createFileRoute("/")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "WebSite",
-          name: "TechRise Africa",
+          name: "TRA Academy",
+          alternateName: ["TechRise Africa", "TraAcademy.org"],
           url: "https://traacademy.org/",
         }),
       },
@@ -194,7 +199,7 @@ function Index() {
         <div className="mt-4 grid grid-cols-4 gap-2 sm:grid-cols-7 sm:gap-3" aria-label="Choose a gallery photo">
           {galleryImages.map(({ src, alt }, index) => (
             <Button key={src} variant="outline" aria-label={`Go to slide ${index + 1}`} aria-pressed={index === current} title={alt} onClick={() => { setPaused(true); setCurrent(index); }} className={`h-20 min-w-0 overflow-hidden p-0 sm:h-24 ${index === current ? "border-cyber-lime ring-2 ring-cyber-lime" : "border-border"}`}>
-              <img src={src} alt="" className="h-full w-full object-contain" width={160} height={96} loading="eager" decoding="async" />
+              <img src={src} alt={alt} className="h-full w-full object-contain" width={160} height={96} loading="eager" decoding="async" />
             </Button>
           ))}
         </div>
