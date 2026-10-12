@@ -11,7 +11,7 @@ export const galleryImages = [
   { src: studentsMentors.url, alt: "TRA Academy students presenting with a microphone at the August 2026 bootcamp", caption: "Students and mentors, growing together" },
   { src: mentorSession.url, alt: "TRA Academy mentor guiding two young students on a laptop during a practical session", caption: "Practical learning and personal mentorship" },
   { src: passingOutDay.url, alt: "Guests, mentors and the founder at the TRA Academy August bootcamp Passing Out Day photo booth", caption: "Celebrating every milestone" },
-  { src: teamMentors.url, alt: "Four TRA Academy mentors in TRA Academy t-shirts standing together outside the bootcamp venue", caption: "The mentors behind the mission" },
+  { src: teamMentors.url, alt: "Four TRA Academy mentors and instructors, three in branded TRA Academy t-shirts, standing together outside the academy in Port Harcourt", caption: "The mentors behind the mission" },
   { src: founderSpeaking.url, alt: "Founder Daniel Okpara speaking with a microphone at a TRA Academy event", caption: "Inspiration for the next generation" },
   { src: kidsPassingOut.url, alt: "TRA Academy kids bootcamp cohort at their passing-out day", caption: "Learn, build, rise together" },
 ];
